@@ -11,10 +11,11 @@ namespace fiasxml.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Data;
-
-    public partial class House
+    
+    public partial class Landmark
     {
+        public string LOCATION { get; set; }
+        public string REGIONCODE { get; set; }
         public string POSTALCODE { get; set; }
         public string IFNSFL { get; set; }
         public string TERRIFNSFL { get; set; }
@@ -22,26 +23,13 @@ namespace fiasxml.Models
         public string TERRIFNSUL { get; set; }
         public string OKATO { get; set; }
         public string OKTMO { get; set; }
-        public Nullable<System.DateTime> UPDATEDATE { get; set; }
-        public string HOUSENUM { get; set; }
-        public int ESTSTATUS { get; set; }
-        public string BUILDNUM { get; set; }
-        public string STRUCNUM { get; set; }
-        public Nullable<int> STRSTATUS { get; set; }
-        public System.Guid HOUSEID { get; set; }
-        public System.Guid HOUSEGUID { get; set; }
+        public System.DateTime UPDATEDATE { get; set; }
+        public string LANDID { get; set; }
+        public string LANDGUID { get; set; }
         public Nullable<System.Guid> AOGUID { get; set; }
         public System.DateTime STARTDATE { get; set; }
         public System.DateTime ENDDATE { get; set; }
-        public Nullable<int> STATSTATUS { get; set; }
         public Nullable<System.Guid> NORMDOC { get; set; }
-        public Nullable<int> COUNTER { get; set; }
         public string CADNUM { get; set; }
-        public Nullable<int> DIVTYPE { get; set; }
-
-        public static explicit operator House(DataTable v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

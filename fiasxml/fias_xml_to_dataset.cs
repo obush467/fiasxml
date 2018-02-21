@@ -5,6 +5,12 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.Data.SqlClient;
 using System.Xml.Schema;
+using fiasxml.Models;
+using fiasxml.dsMainTableAdapters;
+using static fiasxml.dsMain;
+using System.Collections.Generic;
+using System.Collections;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 
 namespace fiasxml.DataSets
 {
@@ -39,10 +45,11 @@ namespace fiasxml.DataSets
         }
         public void loadXmlToDb_Room(string FileName)
         {
-            //FileStream ws;
-            //ws = File.OpenRead(FileName);
+            FileStream ws;
+            ws = File.OpenRead(FileName);
+            BufferedStream buffered = new BufferedStream(ws,1000000000);
             DataSets.Rooms cs = new DataSets.Rooms();
-            loadXmlToDb(FileName, cs.Room, "dbo.Room");
+            loadXmlToDb(buffered, cs.Room, "dbo.Room");
         }
         public void loadXmlToDb_NormativeDocumentTypes(string FileName)
         {
@@ -121,7 +128,7 @@ namespace fiasxml.DataSets
         }
         public void loadXmlToDb_Houses_Entityes(string FileName)
         {
-            Models.ttt2Entities2 ef = new Models.ttt2Entities2();
+            fiasEntities ef = new Models.fiasEntities();
 
             XmlDocument xdoc = new XmlDocument();
             XmlReader wReader = XmlReader.Create(FileName);
@@ -148,7 +155,7 @@ namespace fiasxml.DataSets
                 XmlNodeReader nr = new XmlNodeReader(newd);
                 Entityes.Houses tempHouses = (Entityes.Houses)serializer.Deserialize(nr);
                 Entityes.HousesHouse tHouse = tempHouses.House[0];
-                int insertRes = ef.insertHouse(tHouse.POSTALCODE, tHouse.IFNSFL, tHouse.TERRIFNSFL, tHouse.IFNSUL, tHouse.TERRIFNSUL, tHouse.OKATO, tHouse.OKTMO, tHouse.UPDATEDATE, tHouse.HOUSENUM, int.Parse(tHouse.ESTSTATUS), tHouse.BUILDNUM, tHouse.STRUCNUM, int.Parse(tHouse.STRSTATUS), tHouse.HOUSEID, tHouse.HOUSEGUID, tHouse.AOGUID, tHouse.STARTDATE, tHouse.ENDDATE, int.Parse(tHouse.STATSTATUS), tHouse.NORMDOC, int.Parse(tHouse.COUNTER), tHouse.CADNUM, tHouse.DIVTYPE);
+                //int insertRes = ef.insertHouse(tHouse.POSTALCODE, tHouse.IFNSFL, tHouse.TERRIFNSFL, tHouse.IFNSUL, tHouse.TERRIFNSUL, tHouse.OKATO, tHouse.OKTMO, tHouse.UPDATEDATE, tHouse.HOUSENUM, int.Parse(tHouse.ESTSTATUS), tHouse.BUILDNUM, tHouse.STRUCNUM, int.Parse(tHouse.STRSTATUS), tHouse.HOUSEID, tHouse.HOUSEGUID, tHouse.AOGUID, tHouse.STARTDATE, tHouse.ENDDATE, int.Parse(tHouse.STATSTATUS), tHouse.NORMDOC, int.Parse(tHouse.COUNTER), tHouse.CADNUM, tHouse.DIVTYPE);
             }
 
         }
@@ -231,6 +238,33 @@ namespace fiasxml.DataSets
             XmlReader wReader = XmlReader.Create(wStream);
             this.loadXmlToDb(wReader, wTable, TableName);
         }
+        public void loadDBFToDb(FileInfo dbfFile, string TableName)
+        {
+            NDbfReader.Table dbfTable = NDbfReader.Table.Open(dbfFile.Open(FileMode.Open));
+            NDbfReader.Reader dbfReader = dbfTable.OpenReader(System.Text.Encoding.GetEncoding(866));
+
+            SqlTransaction TRA = cONN.BeginTransaction(("Bulk" + TableName));
+            SqlBulkCopy da = new SqlBulkCopy(this.cONN, SqlBulkCopyOptions.TableLock,TRA);
+            da.BulkCopyTimeout = 60000;
+            da.DestinationTableName = TableName;
+            dsMain ds = new dsMain();
+            HouseDataTable servertable = (HouseDataTable)ds.Tables[TableName];
+            List<DataRow> rows = new List<DataRow>();
+            while (dbfReader.Read())
+            {
+                DataRow newrow = servertable.NewRow();
+                ;
+                foreach (NDbfReader.Column c in dbfTable.Columns)
+                {
+                    newrow.SetField(c.Name, dbfReader.GetValue(c.Name));
+                    rows.Add(newrow);
+                }
+            }
+            da.WriteToServer(rows.ToArray());
+            TRA.Commit();
+        }
+
+
         public void loadXmlToDb(XmlReader wReader, DataTable wTable, string TableName)
         {
             wTable.BeginLoadData();

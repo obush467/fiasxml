@@ -16,12 +16,15 @@ namespace fiasxml
         static void Main(string[] args)
         {
             fiasXMLDataSetConverter.Connection.Open();
+
+            
             try
             {
-                DirectoryInfo rootdir=new DirectoryInfo("E:\\Новая папка\\fias_xml");
-
+                DirectoryInfo rootdir=new DirectoryInfo("E:\\Новая папка");
+                foreach (FileInfo f in (rootdir).GetFiles("HOUSE??.DBF"))
+                { fiasXMLDataSetConverter.loadDBFToDb(f,"House");}
                 //загрузка вспомогательных таблиц
-                foreach (FileInfo f in rootdir.GetFiles("AS_ACTSTAT*"))
+                /*foreach (FileInfo f in rootdir.GetFiles("AS_ACTSTAT*"))
                 { fiasXMLDataSetConverter.loadXmlToDb_ActualStatus(f.FullName); }
 
                 foreach (FileInfo f in rootdir.GetFiles("AS_ESTSTAT_*"))
@@ -59,15 +62,13 @@ namespace fiasxml
                 foreach (FileInfo f in rootdir.GetFiles("AS_FLATTYPE*"))
                 {
                     fiasXMLDataSetConverter.loadXmlToDb_FlatTypes(f.FullName);
-                }
+                }*/
 
                 //загрузка основных таблиц
 
                 /*foreach (FileInfo f in rootdir.GetFiles("AS_ADDROBJ*"))
-                { fiasXMLDataSetConverter.loadXmlToDb_AddressObjects(f.FullName);}*/
-                foreach (FileInfo f in rootdir.GetFiles("AS_HOUSE*"))
-                    { fiasXMLDataSetConverter.loadXmlToDb_Houses(f.FullName);
-                }
+                { fiasXMLDataSetConverter.loadXmlToDb_AddressObjects(f.FullName);}
+
                 foreach (FileInfo f in rootdir.GetFiles("AS_HOUSEINT*"))
                 {
                     fiasXMLDataSetConverter.loadXmlToDb_HousesInterval(f.FullName);
@@ -75,18 +76,22 @@ namespace fiasxml
                 foreach (FileInfo f in rootdir.GetFiles("AS_LANDMARK*"))
                 {
                     fiasXMLDataSetConverter.loadXmlToDb_Landmark(f.FullName);}
-
-                foreach (FileInfo f in rootdir.GetFiles("AS_NORMDOC*"))
+                
+                foreach (FileInfo f in rootdir.GetFiles("AS_STEAD*"))
                 {
-                    fiasXMLDataSetConverter.loadXmlToDb_NormativeDocument(f.FullName);
-                }
+                    fiasXMLDataSetConverter.loadXmlToDb_Stead(f.FullName);
+                }*/
                 foreach (FileInfo f in rootdir.GetFiles("AS_ROOM*"))
                 {
                     fiasXMLDataSetConverter.loadXmlToDb_Room(f.FullName);
                 }
-                foreach (FileInfo f in rootdir.GetFiles("AS_STEAD*"))
+                foreach (FileInfo f in rootdir.GetFiles("AS_NORMDOC*"))
                 {
-                    fiasXMLDataSetConverter.loadXmlToDb_Stead(f.FullName);
+                    fiasXMLDataSetConverter.loadXmlToDb_NormativeDocument(f.FullName);
+                }
+                foreach (FileInfo f in rootdir.GetFiles("AS_HOUSE*"))
+                {
+                    fiasXMLDataSetConverter.loadXmlToDb_Houses(f.FullName);
                 }
                 /*foreach (FileInfo f in rootdir.GetFiles("AS_HOUSE*"))
                 {

@@ -44,5 +44,16 @@ namespace fiasxml.Properties {
                 return ((string)(this["ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MAKSIMOV;Initial Catalog=GBUMATC2;Persist Security Info=True;User ID=" +
+            "Бушмакин;Password=453459")]
+        public string GBUMATC2ConnectionString {
+            get {
+                return ((string)(this["GBUMATC2ConnectionString"]));
+            }
+        }
     }
 }

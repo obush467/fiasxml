@@ -15,10 +15,10 @@ namespace fiasxml.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class ttt2Entities2 : DbContext
+    public partial class fiasEntities : DbContext
     {
-        public ttt2Entities2()
-            : base("name=ttt2Entities2")
+        public fiasEntities()
+            : base("name=fiasEntities")
         {
         }
     
@@ -27,6 +27,24 @@ namespace fiasxml.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<ActualStatus> ActualStatus { get; set; }
+        public virtual DbSet<CenterStatus> CenterStatus { get; set; }
+        public virtual DbSet<CurrentStatus> CurrentStatus { get; set; }
+        public virtual DbSet<EstateStatus> EstateStatus { get; set; }
+        public virtual DbSet<FlatType> FlatType { get; set; }
+        public virtual DbSet<HouseInterval> HouseInterval { get; set; }
+        public virtual DbSet<HouseStateStatus> HouseStateStatus { get; set; }
+        public virtual DbSet<IntervalStatus> IntervalStatus { get; set; }
+        public virtual DbSet<Landmark> Landmark { get; set; }
+        public virtual DbSet<NormativeDocument> NormativeDocument { get; set; }
+        public virtual DbSet<NormativeDocumentType> NormativeDocumentType { get; set; }
+        public virtual DbSet<Object> Object { get; set; }
+        public virtual DbSet<OperationStatus> OperationStatus { get; set; }
+        public virtual DbSet<Room> Room { get; set; }
+        public virtual DbSet<RoomType> RoomType { get; set; }
+        public virtual DbSet<Stead> Stead { get; set; }
+        public virtual DbSet<StructureStatus> StructureStatus { get; set; }
+        public virtual DbSet<AddressObjectType> AddressObjectType { get; set; }
         public virtual DbSet<House> House { get; set; }
     
         public virtual int insertHouse(string pOSTALCODE, string iFNSFL, string tERRIFNSFL, string iFNSUL, string tERRIFNSUL, string oKATO, string oKTMO, Nullable<System.DateTime> uPDATEDATE, string hOUSENUM, Nullable<long> eSTSTATUS, string bUILDNUM, string sTRUCNUM, Nullable<long> sTRSTATUS, Nullable<System.Guid> hOUSEID, Nullable<System.Guid> hOUSEGUID, Nullable<System.Guid> aOGUID, Nullable<System.DateTime> sTARTDATE, Nullable<System.DateTime> eNDDATE, Nullable<long> sTATSTATUS, Nullable<System.Guid> nORMDOC, Nullable<long> cOUNTER, string cADNUM, Nullable<int> dIVTYPE)

@@ -5,7 +5,25 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ebe4b6e904b44854975e5b469319d9bd" Name="Diagram1" ZoomLevel="80">
-        <EntityTypeShape EntityType="ttt2Model2.House" Width="1.5" PointX="1.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.ActualStatus" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Models.CenterStatus" Width="1.5" PointX="3.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Models.CurrentStatus" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Models.EstateStatus" Width="1.5" PointX="5.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Models.FlatType" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Models.HouseInterval" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Models.HouseStateStatus" Width="1.5" PointX="4.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Models.IntervalStatus" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Models.Landmark" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Models.NormativeDocument" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Models.NormativeDocumentType" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Models.Object" Width="1.5" PointX="4.75" PointY="9.75" />
+        <EntityTypeShape EntityType="Models.OperationStatus" Width="1.5" PointX="9.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Models.Room" Width="1.5" PointX="6.75" PointY="9.75" />
+        <EntityTypeShape EntityType="Models.RoomType" Width="1.5" PointX="8.75" PointY="9.75" />
+        <EntityTypeShape EntityType="Models.Stead" Width="1.5" PointX="10.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Models.StructureStatus" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Models.AddressObjectType" Width="1.5" PointX="11.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Models.House" Width="1.5" PointX="0.75" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
