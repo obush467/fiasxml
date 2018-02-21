@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище ttt2Model2" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ttt2.dbo.ActualStatus" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ttt2.dbo.AddressObjectType" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ttt2.dbo.CenterStatus" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ttt2.dbo.CurrentStatus" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ttt2.dbo.House" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="House">
+          <Key>
+            <PropertyRef Name="UPDATEDATE" />
+            <PropertyRef Name="ESTSTATUS" />
+            
+            <PropertyRef Name="STARTDATE" />
+            <PropertyRef Name="ENDDATE" />
+            <PropertyRef Name="STATSTATUS" />
+            <PropertyRef Name="COUNTER" />
+            <PropertyRef Name="DIVTYPE" />
+          </Key>
+          <Property Name="POSTALCODE" Type="varchar" MaxLength="6" />
+          <Property Name="IFNSFL" Type="varchar" MaxLength="4" />
+          <Property Name="TERRIFNSFL" Type="varchar" MaxLength="4" />
+          <Property Name="IFNSUL" Type="varchar" MaxLength="4" />
+          <Property Name="TERRIFNSUL" Type="varchar" MaxLength="4" />
+          <Property Name="OKATO" Type="varchar" MaxLength="11" />
+          <Property Name="OKTMO" Type="varchar" MaxLength="11" />
+          <Property Name="UPDATEDATE" Type="datetime" Nullable="false" />
+          <Property Name="HOUSENUM" Type="varchar" MaxLength="20" />
+          <Property Name="ESTSTATUS" Type="bigint" Nullable="false" />
+          <Property Name="BUILDNUM" Type="varchar" MaxLength="10" />
+          <Property Name="STRUCNUM" Type="varchar" MaxLength="10" />
+          <Property Name="STRSTATUS" Type="bigint" />
+          <Property Name="HOUSEID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="HOUSEGUID" Type="uniqueidentifier" />
+          <Property Name="AOGUID" Type="uniqueidentifier" />
+          <Property Name="STARTDATE" Type="datetime" Nullable="false" />
+          <Property Name="ENDDATE" Type="datetime" Nullable="false" />
+          <Property Name="STATSTATUS" Type="bigint" Nullable="false" />
+          <Property Name="NORMDOC" Type="uniqueidentifier" />
+          <Property Name="COUNTER" Type="bigint" Nullable="false" />
+          <Property Name="CADNUM" Type="varchar" MaxLength="100" />
+          <Property Name="DIVTYPE" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ttt2.dbo.HouseInterval" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ttt2.dbo.HouseStateStatus" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ttt2.dbo.IntervalStatus" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ttt2.dbo.NormativeDocument" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ttt2.dbo.NormativeDocumentType" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ttt2.dbo.OperationStatus" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ttt2.dbo.Room" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ttt2.dbo.Stead" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ttt2.dbo.StructureStatus" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <Function Name="insertHouse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="POSTALCODE" Type="varchar" Mode="In" />
+          <Parameter Name="IFNSFL" Type="varchar" Mode="In" />
+          <Parameter Name="TERRIFNSFL" Type="varchar" Mode="In" />
+          <Parameter Name="IFNSUL" Type="varchar" Mode="In" />
+          <Parameter Name="TERRIFNSUL" Type="varchar" Mode="In" />
+          <Parameter Name="OKATO" Type="varchar" Mode="In" />
+          <Parameter Name="OKTMO" Type="varchar" Mode="In" />
+          <Parameter Name="UPDATEDATE" Type="datetime" Mode="In" />
+          <Parameter Name="HOUSENUM" Type="varchar" Mode="In" />
+          <Parameter Name="ESTSTATUS" Type="bigint" Mode="In" />
+          <Parameter Name="BUILDNUM" Type="varchar" Mode="In" />
+          <Parameter Name="STRUCNUM" Type="varchar" Mode="In" />
+          <Parameter Name="STRSTATUS" Type="bigint" Mode="In" />
+          <Parameter Name="HOUSEID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="HOUSEGUID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="AOGUID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="STARTDATE" Type="datetime" Mode="In" />
+          <Parameter Name="ENDDATE" Type="datetime" Mode="In" />
+          <Parameter Name="STATSTATUS" Type="bigint" Mode="In" />
+          <Parameter Name="NORMDOC" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="COUNTER" Type="bigint" Mode="In" />
+          <Parameter Name="CADNUM" Type="varchar" Mode="In" />
+          <Parameter Name="DIVTYPE" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="Хранилище ttt2Model2Container">
+          <EntitySet Name="House" EntityType="Self.House" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [House].[POSTALCODE] AS [POSTALCODE], 
+    [House].[IFNSFL] AS [IFNSFL], 
+    [House].[TERRIFNSFL] AS [TERRIFNSFL], 
+    [House].[IFNSUL] AS [IFNSUL], 
+    [House].[TERRIFNSUL] AS [TERRIFNSUL], 
+    [House].[OKATO] AS [OKATO], 
+    [House].[OKTMO] AS [OKTMO], 
+    [House].[UPDATEDATE] AS [UPDATEDATE], 
+    [House].[HOUSENUM] AS [HOUSENUM], 
+    [House].[ESTSTATUS] AS [ESTSTATUS], 
+    [House].[BUILDNUM] AS [BUILDNUM], 
+    [House].[STRUCNUM] AS [STRUCNUM], 
+    [House].[STRSTATUS] AS [STRSTATUS], 
+    [House].[HOUSEID] AS [HOUSEID], 
+    [House].[HOUSEGUID] AS [HOUSEGUID], 
+    [House].[AOGUID] AS [AOGUID], 
+    [House].[STARTDATE] AS [STARTDATE], 
+    [House].[ENDDATE] AS [ENDDATE], 
+    [House].[STATSTATUS] AS [STATSTATUS], 
+    [House].[NORMDOC] AS [NORMDOC], 
+    [House].[COUNTER] AS [COUNTER], 
+    [House].[CADNUM] AS [CADNUM], 
+    [House].[DIVTYPE] AS [DIVTYPE]
+    FROM [dbo].[House] AS [House]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ttt2Model2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="House">
+          <Key>
+            <PropertyRef Name="UPDATEDATE" />
+            <PropertyRef Name="ESTSTATUS" />
+            <PropertyRef Name="STARTDATE" />
+            <PropertyRef Name="ENDDATE" />
+            <PropertyRef Name="STATSTATUS" />
+            <PropertyRef Name="COUNTER" />
+            <PropertyRef Name="DIVTYPE" />
+          </Key>
+          <Property Name="POSTALCODE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="IFNSFL" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="TERRIFNSFL" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="IFNSUL" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="TERRIFNSUL" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="OKATO" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="OKTMO" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATEDATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="HOUSENUM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ESTSTATUS" Type="Int64" Nullable="false" />
+          <Property Name="BUILDNUM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="STRUCNUM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="STRSTATUS" Type="Int64" />
+          <Property Name="HOUSEID" Type="Guid" Nullable="false" />
+          <Property Name="HOUSEGUID" Type="Guid" />
+          <Property Name="AOGUID" Type="Guid" />
+          <Property Name="STARTDATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ENDDATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="STATSTATUS" Type="Int64" Nullable="false" />
+          <Property Name="NORMDOC" Type="Guid" />
+          <Property Name="COUNTER" Type="Int64" Nullable="false" />
+          <Property Name="CADNUM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DIVTYPE" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ttt2Entities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="House" EntityType="Self.House" />
+          <FunctionImport Name="insertHouse">
+            <Parameter Name="POSTALCODE" Mode="In" Type="String" />
+            <Parameter Name="IFNSFL" Mode="In" Type="String" />
+            <Parameter Name="TERRIFNSFL" Mode="In" Type="String" />
+            <Parameter Name="IFNSUL" Mode="In" Type="String" />
+            <Parameter Name="TERRIFNSUL" Mode="In" Type="String" />
+            <Parameter Name="OKATO" Mode="In" Type="String" />
+            <Parameter Name="OKTMO" Mode="In" Type="String" />
+            <Parameter Name="UPDATEDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="HOUSENUM" Mode="In" Type="String" />
+            <Parameter Name="ESTSTATUS" Mode="In" Type="Int64" />
+            <Parameter Name="BUILDNUM" Mode="In" Type="String" />
+            <Parameter Name="STRUCNUM" Mode="In" Type="String" />
+            <Parameter Name="STRSTATUS" Mode="In" Type="Int64" />
+            <Parameter Name="HOUSEID" Mode="In" Type="Guid" />
+            <Parameter Name="HOUSEGUID" Mode="In" Type="Guid" />
+            <Parameter Name="AOGUID" Mode="In" Type="Guid" />
+            <Parameter Name="STARTDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="ENDDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="STATSTATUS" Mode="In" Type="Int64" />
+            <Parameter Name="NORMDOC" Mode="In" Type="Guid" />
+            <Parameter Name="COUNTER" Mode="In" Type="Int64" />
+            <Parameter Name="CADNUM" Mode="In" Type="String" />
+            <Parameter Name="DIVTYPE" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insertHouse1">
+            <Parameter Name="POSTALCODE" Mode="In" Type="String" />
+            <Parameter Name="IFNSFL" Mode="In" Type="String" />
+            <Parameter Name="TERRIFNSFL" Mode="In" Type="String" />
+            <Parameter Name="IFNSUL" Mode="In" Type="String" />
+            <Parameter Name="TERRIFNSUL" Mode="In" Type="String" />
+            <Parameter Name="OKATO" Mode="In" Type="String" />
+            <Parameter Name="OKTMO" Mode="In" Type="String" />
+            <Parameter Name="UPDATEDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="HOUSENUM" Mode="In" Type="String" />
+            <Parameter Name="ESTSTATUS" Mode="In" Type="Int64" />
+            <Parameter Name="BUILDNUM" Mode="In" Type="String" />
+            <Parameter Name="STRUCNUM" Mode="In" Type="String" />
+            <Parameter Name="STRSTATUS" Mode="In" Type="Int64" />
+            <Parameter Name="HOUSEID" Mode="In" Type="Guid" />
+            <Parameter Name="HOUSEGUID" Mode="In" Type="Guid" />
+            <Parameter Name="AOGUID" Mode="In" Type="Guid" />
+            <Parameter Name="STARTDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="ENDDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="STATSTATUS" Mode="In" Type="Int64" />
+            <Parameter Name="NORMDOC" Mode="In" Type="Guid" />
+            <Parameter Name="COUNTER" Mode="In" Type="Int64" />
+            <Parameter Name="CADNUM" Mode="In" Type="String" />
+            <Parameter Name="DIVTYPE" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insertHouse11">
+            <Parameter Name="POSTALCODE" Mode="In" Type="String" />
+            <Parameter Name="IFNSFL" Mode="In" Type="String" />
+            <Parameter Name="TERRIFNSFL" Mode="In" Type="String" />
+            <Parameter Name="IFNSUL" Mode="In" Type="String" />
+            <Parameter Name="TERRIFNSUL" Mode="In" Type="String" />
+            <Parameter Name="OKATO" Mode="In" Type="String" />
+            <Parameter Name="OKTMO" Mode="In" Type="String" />
+            <Parameter Name="UPDATEDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="HOUSENUM" Mode="In" Type="String" />
+            <Parameter Name="ESTSTATUS" Mode="In" Type="Int64" />
+            <Parameter Name="BUILDNUM" Mode="In" Type="String" />
+            <Parameter Name="STRUCNUM" Mode="In" Type="String" />
+            <Parameter Name="STRSTATUS" Mode="In" Type="Int64" />
+            <Parameter Name="HOUSEID" Mode="In" Type="Guid" />
+            <Parameter Name="HOUSEGUID" Mode="In" Type="Guid" />
+            <Parameter Name="AOGUID" Mode="In" Type="Guid" />
+            <Parameter Name="STARTDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="ENDDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="STATSTATUS" Mode="In" Type="Int64" />
+            <Parameter Name="NORMDOC" Mode="In" Type="Guid" />
+            <Parameter Name="COUNTER" Mode="In" Type="Int64" />
+            <Parameter Name="CADNUM" Mode="In" Type="String" />
+            <Parameter Name="DIVTYPE" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ttt2Model2Container" CdmEntityContainer="ttt2Entities2">
+          <EntitySetMapping Name="House">
+            <EntityTypeMapping TypeName="ttt2Model2.House">
+              <MappingFragment StoreEntitySet="House">
+                <ScalarProperty Name="POSTALCODE" ColumnName="POSTALCODE" />
+                <ScalarProperty Name="IFNSFL" ColumnName="IFNSFL" />
+                <ScalarProperty Name="TERRIFNSFL" ColumnName="TERRIFNSFL" />
+                <ScalarProperty Name="IFNSUL" ColumnName="IFNSUL" />
+                <ScalarProperty Name="TERRIFNSUL" ColumnName="TERRIFNSUL" />
+                <ScalarProperty Name="OKATO" ColumnName="OKATO" />
+                <ScalarProperty Name="OKTMO" ColumnName="OKTMO" />
+                <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+                <ScalarProperty Name="HOUSENUM" ColumnName="HOUSENUM" />
+                <ScalarProperty Name="ESTSTATUS" ColumnName="ESTSTATUS" />
+                <ScalarProperty Name="BUILDNUM" ColumnName="BUILDNUM" />
+                <ScalarProperty Name="STRUCNUM" ColumnName="STRUCNUM" />
+                <ScalarProperty Name="STRSTATUS" ColumnName="STRSTATUS" />
+                <ScalarProperty Name="HOUSEID" ColumnName="HOUSEID" />
+                <ScalarProperty Name="HOUSEGUID" ColumnName="HOUSEGUID" />
+                <ScalarProperty Name="AOGUID" ColumnName="AOGUID" />
+                <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+                <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+                <ScalarProperty Name="STATSTATUS" ColumnName="STATSTATUS" />
+                <ScalarProperty Name="NORMDOC" ColumnName="NORMDOC" />
+                <ScalarProperty Name="COUNTER" ColumnName="COUNTER" />
+                <ScalarProperty Name="CADNUM" ColumnName="CADNUM" />
+                <ScalarProperty Name="DIVTYPE" ColumnName="DIVTYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="insertHouse" FunctionName="Хранилище ttt2Model2.insertHouse" />
+          <FunctionImportMapping FunctionImportName="insertHouse1" FunctionName="Хранилище ttt2Model2.insertHouse" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
 using System.Xml.Serialization;
 
 // 
@@ -80,11 +81,11 @@ namespace fiasxml.Entityes
 
         private string sTRSTATUSField;
 
-        private string hOUSEIDField;
+        private Guid hOUSEIDField;
 
-        private string hOUSEGUIDField;
+        private Guid hOUSEGUIDField;
 
-        private string aOGUIDField;
+        private Guid aOGUIDField;
 
         private System.DateTime sTARTDATEField;
 
@@ -92,7 +93,7 @@ namespace fiasxml.Entityes
 
         private string sTATSTATUSField;
 
-        private string nORMDOCField;
+        private Guid nORMDOCField;
 
         private string cOUNTERField;
 
@@ -298,7 +299,7 @@ namespace fiasxml.Entityes
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string HOUSEID
+        public Guid HOUSEID
         {
             get
             {
@@ -312,7 +313,7 @@ namespace fiasxml.Entityes
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string HOUSEGUID
+        public Guid HOUSEGUID
         {
             get
             {
@@ -326,7 +327,7 @@ namespace fiasxml.Entityes
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string AOGUID
+        public Guid AOGUID
         {
             get
             {
@@ -382,7 +383,7 @@ namespace fiasxml.Entityes
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string NORMDOC
+        public Guid NORMDOC
         {
             get
             {
@@ -390,7 +391,7 @@ namespace fiasxml.Entityes
             }
             set
             {
-                this.nORMDOCField = value;
+               this.nORMDOCField = value; 
             }
         }
 

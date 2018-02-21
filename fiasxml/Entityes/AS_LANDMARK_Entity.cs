@@ -72,17 +72,17 @@ namespace fiasxml.Entityes
 
         private System.DateTime uPDATEDATEField;
 
-        private string lANDIDField;
+        private System.Guid lANDIDField;
 
-        private string lANDGUIDField;
+        private System.Guid lANDGUIDField;
 
-        private string aOGUIDField;
+        private System.Guid aOGUIDField;
 
         private System.DateTime sTARTDATEField;
 
         private System.DateTime eNDDATEField;
 
-        private string nORMDOCField;
+        private System.Guid nORMDOCField;
 
         private string cADNUMField;
 
@@ -228,7 +228,7 @@ namespace fiasxml.Entityes
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string LANDID
+        public System.Guid LANDID
         {
             get
             {
@@ -242,7 +242,7 @@ namespace fiasxml.Entityes
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string LANDGUID
+        public System.Guid LANDGUID
         {
             get
             {
@@ -256,7 +256,7 @@ namespace fiasxml.Entityes
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string AOGUID
+        public System.Guid AOGUID
         {
             get
             {
@@ -298,7 +298,7 @@ namespace fiasxml.Entityes
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string NORMDOC
+        public System.Guid NORMDOC
         {
             get
             {
