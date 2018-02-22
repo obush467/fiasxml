@@ -5,6 +5,8 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.Data.SqlClient;
 using System.Xml.Schema;
+using fiasxml.DataSets;
+using fiasxml.DataSets.dsMainTableAdapters;
 
 namespace fiasxml
 {
@@ -12,7 +14,7 @@ namespace fiasxml
     {
         // [STAThread]
 
-        private static DataSets.fias_xml_to_dataset fiasXMLDataSetConverter = new DataSets.fias_xml_to_dataset();
+        private static fias_xml_to_dataset fiasXMLDataSetConverter = new fias_xml_to_dataset();
         static void Main(string[] args)
         {
             fiasXMLDataSetConverter.Connection.Open();

@@ -6,13 +6,14 @@ using System.Xml.Serialization;
 using System.Data.SqlClient;
 using System.Xml.Schema;
 using fiasxml.Models;
-using fiasxml.dsMainTableAdapters;
-using static fiasxml.dsMain;
+using fiasxml.DataSets.dsMainTableAdapters;
+using static fiasxml.DataSets.dsMain;
 using System.Collections.Generic;
 using System.Collections;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
+using fiasxml.DataSets;
 
-namespace fiasxml.DataSets
+namespace fiasxml
 {
     class fias_xml_to_dataset
     {
@@ -40,7 +41,7 @@ namespace fiasxml.DataSets
         {
             //FileStream ws;
             //ws = File.OpenRead(FileName);
-            DataSets.Steads cs = new DataSets.Steads();
+            Steads cs = new DataSets.Steads();
             loadXmlToDb(FileName, cs.Stead, "dbo.Stead");
         }
         public void loadXmlToDb_Room(string FileName)
@@ -55,7 +56,7 @@ namespace fiasxml.DataSets
         {
             //FileStream ws;
             //ws = File.OpenRead(FileName);
-            DataSets.NormativeDocumentTypes cs = new DataSets.NormativeDocumentTypes();
+            NormativeDocumentTypes cs = new DataSets.NormativeDocumentTypes();
             loadXmlToDb(FileName, cs.NormativeDocumentType, "dbo.NormativeDocumentType");
         }
         public void loadXmlToDb_NormativeDocument(string FileName)

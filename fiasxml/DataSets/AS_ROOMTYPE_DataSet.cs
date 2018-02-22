@@ -305,44 +305,12 @@ namespace fiasxml.DataSets
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class RoomTypesDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable
         {
-
-            private global::System.Data.DataColumn columnROOMGUID;
-
             private global::System.Data.DataColumn columnNAME;
 
             private global::System.Data.DataColumn columnRMTYPEID;
 
             private global::System.Data.DataColumn columnSHORTNAME;
-
-            private global::System.Data.DataColumn columnROOMTYPE;
-
-            private global::System.Data.DataColumn columnREGIONCODE;
-
-            private global::System.Data.DataColumn columnPOSTALCODE;
-
-            private global::System.Data.DataColumn columnUPDATEDATE;
-
-            private global::System.Data.DataColumn columnHOUSEGUID;
-
-            private global::System.Data.DataColumn columnROOMID;
-
-            private global::System.Data.DataColumn columnPREVID;
-
-            private global::System.Data.DataColumn columnNEXTID;
-
-            private global::System.Data.DataColumn columnSTARTDATE;
-
-            private global::System.Data.DataColumn columnENDDATE;
-
-            private global::System.Data.DataColumn columnLIVESTATUS;
-
-            private global::System.Data.DataColumn columnNORMDOC;
-
-            private global::System.Data.DataColumn columnOPERSTATUS;
-
-            private global::System.Data.DataColumn columnCADNUM;
-
-            private global::System.Data.DataColumn columnROOMCADNUM;
+           
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public RoomTypesDataTable()
@@ -381,15 +349,6 @@ namespace fiasxml.DataSets
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn ROOMGUIDColumn
-            {
-                get
-                {
-                    return this.columnROOMGUID;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public global::System.Data.DataColumn NAMEColumn
             {
                 get
@@ -413,151 +372,6 @@ namespace fiasxml.DataSets
                 get
                 {
                     return this.columnSHORTNAME;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn ROOMTYPEColumn
-            {
-                get
-                {
-                    return this.columnROOMTYPE;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn REGIONCODEColumn
-            {
-                get
-                {
-                    return this.columnREGIONCODE;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn POSTALCODEColumn
-            {
-                get
-                {
-                    return this.columnPOSTALCODE;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn UPDATEDATEColumn
-            {
-                get
-                {
-                    return this.columnUPDATEDATE;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn HOUSEGUIDColumn
-            {
-                get
-                {
-                    return this.columnHOUSEGUID;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn ROOMIDColumn
-            {
-                get
-                {
-                    return this.columnROOMID;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn PREVIDColumn
-            {
-                get
-                {
-                    return this.columnPREVID;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn NEXTIDColumn
-            {
-                get
-                {
-                    return this.columnNEXTID;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn STARTDATEColumn
-            {
-                get
-                {
-                    return this.columnSTARTDATE;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn ENDDATEColumn
-            {
-                get
-                {
-                    return this.columnENDDATE;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn LIVESTATUSColumn
-            {
-                get
-                {
-                    return this.columnLIVESTATUS;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn NORMDOCColumn
-            {
-                get
-                {
-                    return this.columnNORMDOC;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn OPERSTATUSColumn
-            {
-                get
-                {
-                    return this.columnOPERSTATUS;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn CADNUMColumn
-            {
-                get
-                {
-                    return this.columnCADNUM;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn ROOMCADNUMColumn
-            {
-                get
-                {
-                    return this.columnROOMCADNUM;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count
-            {
-                get
-                {
-                    return this.Rows.Count;
                 }
             }
 
@@ -829,19 +643,6 @@ namespace fiasxml.DataSets
                     base(rb)
             {
                 this.tableRoomTypes = ((RoomTypesDataTable)(this.Table));
-            }
-
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string RoomType
-            {
-                get
-                {
-                    return ((string)(this[this.tableRoomTypes.ROOMGUIDColumn]));
-                }
-                set
-                {
-                    this[this.tableRoomTypes.ROOMGUIDColumn] = value;
-                }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -107,11 +107,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DataSets\AS_FLATTYPE_DataSet.cs" />
     <Compile Include="DataSets\AS_ROOMTYPE_DataSet.cs" />
     <Compile Include="DataSet_DBF.Designer.cs">
@@ -138,11 +133,11 @@
     <Compile Include="DataSets\AS_SOCRBASE_DataSet.cs" />
     <Compile Include="DataSets\AS_STEAD_DataSet.cs" />
     <Compile Include="DataSets\AS_STRSTAT_DataSet.cs" />
-    <Compile Include="dsMain.cs">
+    <Compile Include="DataSets\dsMain.cs">
       <DependentUpon>dsMain.xsd</DependentUpon>
       <SubType>code</SubType>
     </Compile>
-    <Compile Include="dsMain.Designer.cs">
+    <Compile Include="DataSets\dsMain.Designer.cs">
       <DependentUpon>dsMain.xsd</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -248,32 +243,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="dsMain.xsc">
+    <None Include="DataSets\dsMain.xsc">
       <DependentUpon>dsMain.xsd</DependentUpon>
     </None>
-    <None Include="dsMain.xsd">
+    <None Include="DataSets\dsMain.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>dsMain.Designer.cs</LastGenOutput>
     </None>
-    <None Include="dsMain.xss">
+    <None Include="DataSets\dsMain.xss">
       <DependentUpon>dsMain.xsd</DependentUpon>
     </None>
     <EntityDeploy Include="Models\ModelBASE.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelBASE.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DataSet2.xsc">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet2.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSet2.xss">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </None>
     <None Include="DataSet_DBF.xsc">
       <DependentUpon>DataSet_DBF.xsd</DependentUpon>
     </None>
