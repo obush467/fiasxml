@@ -1,21 +1,24 @@
-﻿namespace fiasxml.DataSets
+﻿namespace fias.SQL.DataSets
 {
 }
 
-namespace fiasxml.DataSets
+namespace fias.SQL.DataSets
 {
 }
 
-namespace fiasxml.DataSets
+namespace fias.SQL.DataSets
 {
 
 
     partial class dsMain
     {
+        partial class HouseDataTable
+        {
+        }
     }
 }
 
-namespace fiasxml.DataSets.dsMainTableAdapters
+namespace fias.SQL.DataSets.dsMainTableAdapters
 {
 
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace fiasxml.Properties {
+namespace fias.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -48,11 +48,11 @@ namespace fiasxml.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MAKSIMOV;Initial Catalog=GBUMATC2;Persist Security Info=True;User ID=" +
-            "Бушмакин;Password=453459")]
-        public string GBUMATC2ConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MAKSIMOV;Initial Catalog=GBUMATC;Persist Security Info=True;User ID=Б" +
+            "ушмакин;Password=453459")]
+        public string GBUMATCConnectionString {
             get {
-                return ((string)(this["GBUMATC2ConnectionString"]));
+                return ((string)(this["GBUMATCConnectionString"]));
             }
         }
     }

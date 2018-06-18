@@ -7,8 +7,8 @@
     <ProjectGuid>{4D6616A4-41C5-44DC-872D-72A0A5758D3D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>fiasxml</RootNamespace>
-    <AssemblyName>fiasxml</AssemblyName>
+    <RootNamespace>fias</RootNamespace>
+    <AssemblyName>fias</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -70,21 +70,10 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>fiasxml.Program</StartupObject>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotNetDBF, Version=5.0.4.0, Culture=neutral, PublicKeyToken=9c071727b589770e, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetDBF.5.0.4\lib\net35\DotNetDBF.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="NDbfReader, Version=2.0.0.0, Culture=neutral, PublicKeyToken=421d1ecd09787b1d, processorArchitecture=MSIL">
       <HintPath>..\packages\NDbfReader.2.0.0\lib\net45\NDbfReader.dll</HintPath>
       <Private>True</Private>
@@ -107,13 +96,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BulkTableListItem.cs" />
     <Compile Include="DataSets\AS_FLATTYPE_DataSet.cs" />
     <Compile Include="DataSets\AS_ROOMTYPE_DataSet.cs" />
-    <Compile Include="DataSet_DBF.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet_DBF.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DataSets\AS_ACTSTAT_DataSet.cs" />
     <Compile Include="DataSets\AS_ADDROBJ_DataSet.cs">
       <SubType>code</SubType>
@@ -142,95 +127,7 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Entityes\AS_ACTSTAT_Entity.cs" />
-    <Compile Include="Entityes\AS_CENTERST_Entity.cs" />
-    <Compile Include="Entityes\AS_CURENTST_Entity.cs" />
-    <Compile Include="Entityes\AS_ESTSTAT_Entity.cs" />
-    <Compile Include="Entityes\AS_HOUSEINT_Entity.cs" />
-    <Compile Include="Entityes\AS_HOUSE_Entity.cs" />
-    <Compile Include="Entityes\AS_HSTSTAT_Entity.cs" />
-    <Compile Include="Entityes\AS_INTVSTAT_Entity.cs" />
-    <Compile Include="Entityes\AS_LANDMARK_Entity.cs" />
-    <Compile Include="Entityes\AS_NDOCTYPE_Entity.cs" />
-    <Compile Include="Entityes\AS_NORMDOC_Entity.cs" />
-    <Compile Include="Entityes\AS_OPERSTAT_Entity.cs" />
-    <Compile Include="Entityes\AS_ROOMTYPE_Entity.cs" />
-    <Compile Include="Entityes\AS_ROOM_Entity.cs" />
-    <Compile Include="Entityes\AS_SOCRBASE_Entity.cs" />
-    <Compile Include="Entityes\AS_STEAD_Entity.cs" />
-    <Compile Include="Entityes\AS_STRSTAT_Entity.cs" />
-    <Compile Include="Models\ActualStatus.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AddressObjectType.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CenterStatus.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CurrentStatus.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EstateStatus.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\FlatType.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\House.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HouseInterval.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HouseStateStatus.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\IntervalStatus.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Landmark.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ModelBASE.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelBASE.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ModelBASE.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ModelBASE.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelBASE.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NormativeDocument.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NormativeDocumentType.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Object.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\OperationStatus.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Room.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RoomType.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Stead.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\StructureStatus.cs">
-      <DependentUpon>ModelBASE.tt</DependentUpon>
-    </Compile>
+    <Compile Include="fias_DBF_to_dataset.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -238,8 +135,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Tests\Test_DataSet.cs" />
-    <Compile Include="fias_xml_to_dataset.cs" />
+    <Compile Include="fias_XML_to_dataset.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -254,106 +150,10 @@
     <None Include="DataSets\dsMain.xss">
       <DependentUpon>dsMain.xsd</DependentUpon>
     </None>
-    <EntityDeploy Include="Models\ModelBASE.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelBASE.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DataSet_DBF.xsc">
-      <DependentUpon>DataSet_DBF.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet_DBF.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet_DBF.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSet_DBF.xss">
-      <DependentUpon>DataSet_DBF.xsd</DependentUpon>
-    </None>
-    <None Include="Models\ModelBASE.edmx.diagram">
-      <DependentUpon>ModelBASE.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="xsd\AS_ADDROBJ_2_250_01_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_ADDROBJ_2_250_01_04_01_01.xsx">
-      <DependentUpon>AS_ADDROBJ_2_250_01_04_01_01.xsd</DependentUpon>
-    </None>
-    <None Include="xsd\AS_CENTERST_2_250_10_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_CURENTST_2_250_07_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_DEL_ADDROBJ_2_250_15_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_DEL_ADDROBJ_2_250_15_04_01_01.xsx">
-      <DependentUpon>AS_DEL_ADDROBJ_2_250_15_04_01_01.xsd</DependentUpon>
-    </None>
-    <None Include="xsd\AS_DEL_HOUSEINT_2_250_17_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_DEL_HOUSE_2_250_16_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_DEL_LANDMARK_2_250_18_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_DEL_NORMDOC_2_250_19_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_ESTSTAT_2_250_13_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_HOUSEINT_2_250_03_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_HOUSE_2_250_02_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_HSTSTAT_2_250_12_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_INTVSTAT_2_250_11_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_LANDMARK_2_250_04_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_NDOCTYPE_2_250_15_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_NORMDOC_2_250_05_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_OPERSTAT_2_250_09_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_ROOMTYPE_2_250_24_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_ROOM_2_250_17_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_ROOM_2_int.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_SOCRBASE_2_250_06_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_STEAD_2_250_16_04_01_01.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_STEAD_int.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xsd\AS_STRSTAT_2_250_14_04_01_01.xsd">
-      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -378,18 +178,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Models\ModelBASE.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelBASE.edmx</DependentUpon>
-      <LastGenOutput>ModelBASE.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ModelBASE.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelBASE.edmx</DependentUpon>
-      <LastGenOutput>ModelBASE.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
