@@ -21,11 +21,10 @@ namespace fias.XML
         DirectoryInfo _rootdir;      
         log LogInfo;
         log LogDebug;
-        log LogWarning;
-        public string ConnectionString { get; set; } = "Data Source=MAKSIMOV;Initial Catalog=GBUMATC;Persist Security Info=True;User ID=Бушмакин;Password=453459";
-        public fias_XML_to_dataset(DirectoryInfo rootdir)
+        log LogWarning;       
+        public fias_XML_to_dataset(DirectoryInfo rootdir, SqlConnection connection)
         {
-            Connection = new SqlConnection(ConnectionString);
+            Connection = connection;
             _rootdir = rootdir;
             LogInfo = (string message) => { Console.WriteLine(message); };
             LogDebug = (string message) => { Console.WriteLine(message); };
@@ -413,7 +412,7 @@ namespace fias.XML
 {
     var task1 = Task.Factory.StartNew(() =>
     {
-        using (SqlConnection _connection = new SqlConnection(ConnectionString))
+        using (SqlConnection _connection = Connection)
         {
             _connection.Open();
             List<BulkTableListItem> bulkList = new List<BulkTableListItem>();
