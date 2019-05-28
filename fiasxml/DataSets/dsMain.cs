@@ -6,7 +6,7 @@ namespace fias.SQL.DataSets
 {
 }
 
-namespace fias.SQL.DataSets
+namespace fias.DataSets
 {
 
 
@@ -18,9 +18,15 @@ namespace fias.SQL.DataSets
     }
 }
 
-namespace fias.SQL.DataSets.dsMainTableAdapters
+namespace fias.DataSets.dsMainTableAdapters
 {
+    partial class Del_NormativeDocumentTableAdapter
+    {
+    }
 
+    partial class NormativeDocumentTableAdapter
+    {
+    }
 
     public partial class ObjectTableAdapter
     {

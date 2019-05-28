@@ -9,7 +9,8 @@ using fias.XML.DataSets;
 using System.Threading.Tasks;
 using System.Linq;
 using fias.SQL.DataSets;
-using fias.SQL.DataSets.dsMainTableAdapters;
+using fias.DataSets.dsMainTableAdapters;
+using fias.DataSets;
 
 namespace fias.XML
 {
