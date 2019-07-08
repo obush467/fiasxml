@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace fias.DataSets {
+namespace Fias.DataSets {
     
     
     /// <summary>
@@ -17530,7 +17530,7 @@ namespace fias.DataSets {
         }
     }
 }
-namespace fias.DataSets.dsMainTableAdapters {
+namespace Fias.DataSets.dsMainTableAdapters {
     
     
     /// <summary>
@@ -17687,7 +17687,7 @@ namespace fias.DataSets.dsMainTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17986,7 +17986,7 @@ namespace fias.DataSets.dsMainTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18252,7 +18252,7 @@ namespace fias.DataSets.dsMainTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18573,7 +18573,7 @@ namespace fias.DataSets.dsMainTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18901,7 +18901,7 @@ SELECT ESTSTATID, NAME, SHORTNAME FROM EstateStatus WHERE (ESTSTATID = @ESTSTATI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19259,7 +19259,7 @@ SELECT FLTYPEID, NAME, SHORTNAME FROM FlatType WHERE (FLTYPEID = @FLTYPEID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19803,7 +19803,7 @@ SELECT POSTALCODE, IFNSFL, TERRIFNSFL, IFNSUL, TERRIFNSUL, OKATO, OKTMO, UPDATED
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20828,7 +20828,7 @@ SELECT POSTALCODE, IFNSFL, TERRIFNSFL, IFNSUL, TERRIFNSUL, OKATO, OKTMO, UPDATED
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21566,7 +21566,7 @@ SELECT POSTALCODE, IFNSFL, TERRIFNSFL, IFNSUL, TERRIFNSUL, OKATO, OKTMO, UPDATED
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21887,7 +21887,7 @@ SELECT POSTALCODE, IFNSFL, TERRIFNSFL, IFNSUL, TERRIFNSUL, OKATO, OKTMO, UPDATED
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -22328,7 +22328,7 @@ SELECT LOCATION, REGIONCODE, POSTALCODE, IFNSFL, TERRIFNSFL, IFNSUL, TERRIFNSUL,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23149,7 +23149,7 @@ SELECT NORMDOCID, DOCNAME, DOCDATE, DOCNUM, DOCTYPE, DOCIMGID FROM NormativeDocu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23555,7 +23555,7 @@ SELECT NORMDOCID, DOCNAME, DOCDATE, DOCNUM, DOCTYPE, DOCIMGID FROM NormativeDocu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23876,7 +23876,7 @@ SELECT NORMDOCID, DOCNAME, DOCDATE, DOCNUM, DOCTYPE, DOCIMGID FROM NormativeDocu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24325,7 +24325,7 @@ SELECT ROOMGUID, FLATNUMBER, FLATTYPE, ROOMNUMBER, ROOMTYPE, REGIONCODE, POSTALC
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25117,7 +25117,7 @@ SELECT RMTYPEID, NAME, SHORTNAME FROM RoomType WHERE (RMTYPEID = @RMTYPEID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25469,7 +25469,7 @@ SELECT STRSTATID, NAME, SHORTNAME FROM StructureStatus WHERE (STRSTATID = @STRST
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -26262,7 +26262,7 @@ SELECT STRSTATID, NAME, SHORTNAME FROM StructureStatus WHERE (STRSTATID = @STRST
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -28245,7 +28245,7 @@ SELECT STEADGUID, NUMBER, REGIONCODE, POSTALCODE, IFNSFL, TERRIFNSFL, IFNSUL, TE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -29365,7 +29365,7 @@ SELECT POSTALCODE, IFNSFL, TERRIFNSFL, IFNSUL, TERRIFNSUL, OKATO, OKTMO, UPDATED
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -30347,7 +30347,7 @@ SELECT NORMDOCID, DOCNAME, DOCDATE, DOCNUM, DOCTYPE, DOCIMGID FROM fias_tmp.Del_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -31215,7 +31215,7 @@ SELECT NORMDOCID, DOCNAME, DOCDATE, DOCNUM, DOCTYPE, DOCIMGID FROM fias_tmp.Del_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::fias.Properties.Settings.Default.UNSConnectionString;
+            this._connection.ConnectionString = global::Fias.Properties.Settings.Default.UNSConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -32921,7 +32921,7 @@ SELECT NORMDOCID, DOCNAME, DOCDATE, DOCNUM, DOCTYPE, DOCIMGID FROM fias_tmp.Del_
         private void InitCommandCollection() {
             this._commandCollection = new global::System.Data.IDbCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::fias.Properties.Settings.Default.GBUMATCConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Fias.Properties.Settings.Default.GBUMATCConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = @"INSERT INTO fias_tmp.House
                          (POSTALCODE, IFNSFL, TERRIFNSFL, IFNSUL, TERRIFNSUL, OKATO, OKTMO, UPDATEDATE, HOUSENUM, ESTSTATUS, BUILDNUM, STRUCNUM, STRSTATUS, 
                          HOUSEID, HOUSEGUID, AOGUID, STARTDATE, ENDDATE, STATSTATUS, NORMDOC, COUNTER, CADNUM, DIVTYPE)
@@ -32951,7 +32951,7 @@ VALUES        (@POSTALCODE,@IFNSFL,@TERRIFNSFL,@IFNSUL,@TERRIFNSUL,@OKATO,@OKTMO
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CADNUM", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "CADNUM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DIVTYPE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DIVTYPE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Connection = new global::System.Data.SqlClient.SqlConnection(global::fias.Properties.Settings.Default.GBUMATCConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Fias.Properties.Settings.Default.GBUMATCConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandText = "SELECT        CAST(CASE WHEN EXISTS\r\n                             (SELECT        " +
                 "*\r\n                               FROM            fias_tmp.House\r\n              " +
                 "                 WHERE        HOUSEID = @HOUSEID) THEN 1 ELSE 0 END AS BIT) AS e" +
@@ -32959,7 +32959,7 @@ VALUES        (@POSTALCODE,@IFNSFL,@TERRIFNSFL,@IFNSUL,@TERRIFNSUL,@OKATO,@OKTMO
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandType = global::System.Data.CommandType.Text;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HOUSEID", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Connection = new global::System.Data.SqlClient.SqlConnection(global::fias.Properties.Settings.Default.GBUMATCConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Fias.Properties.Settings.Default.GBUMATCConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).CommandText = "SELECT        CAST(CASE WHEN EXISTS\r\n                             (SELECT        " +
                 "*\r\n                               FROM            fias_tmp.Object\r\n             " +
                 "                  WHERE        AOGUID = @AOGUID) THEN 0 ELSE 1 END AS bit) AS re" +

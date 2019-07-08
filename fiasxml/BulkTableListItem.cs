@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace fias.SQL.DataSets
+namespace Fias.DataSets
 {
     public class BulkTableListItem
     {
