@@ -13,150 +13,149 @@ using Fias.DataSets;
 
 namespace Fias.Operators
 {
-    delegate void log(string message);
-    class FiasOperatorXML:Fias.Operators.FiasOperator
+    public class FiasOperatorXML: FiasOperator
     {
-    
+   
         public FiasOperatorXML(DirectoryInfo rootdir, SqlConnection connection, string schemaname) :base(rootdir, connection, schemaname)
         {
         }
-        public void loadXmlToDb_Stead(string FileName)
+        public void LoadToDb_Stead(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             Steads cs = new Steads();
-            loadXmlToDb(ws, cs.Stead, "dbo.Stead");
+            LoadToDb(ws, cs.Stead, "dbo.Stead");
         }
-        public void loadXmlToDb_Room(string FileName)
+        public void LoadToDb_Room(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             BufferedStream buffered = new BufferedStream(ws, 1000000000);
             Rooms cs = new Rooms();
-            loadXmlToDb(buffered, cs.Room, "dbo.Room");
+            LoadToDb(buffered, cs.Room, "dbo.Room");
         }
-        public void loadXmlToDb_NormativeDocumentTypes(string FileName)
+        public void LoadToDb_NormativeDocumentTypes(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             NormativeDocumentTypes cs = new NormativeDocumentTypes();
-            loadXmlToDb(ws, cs.NormativeDocumentType, "dbo.NormativeDocumentType");
+            LoadToDb(ws, cs.NormativeDocumentType, "dbo.NormativeDocumentType");
         }
-        public void loadXmlToDb_NormativeDocument(string FileName)
+        public void LoadToDb_NormativeDocument(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             NormativeDocumentes cs = new NormativeDocumentes();
-            loadXmlToDb(ws, cs.NormativeDocument, "dbo.NormativeDocument");
+            LoadToDb(ws, cs.NormativeDocument, "dbo.NormativeDocument");
         }
-        public void loadXmlToDb_Landmark(string FileName)
+        public void LoadToDb_Landmark(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             Landmarks cs = new Landmarks();
-            loadXmlToDb(ws, cs.Landmark, "dbo.Landmark");
+            LoadToDb(ws, cs.Landmark, "dbo.Landmark");
         }
-        public void loadXmlToDb_Landmark(string FileName, string SchemeName)
+        public void LoadToDb_Landmark(string FileName, string SchemeName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             Landmarks cs = new Landmarks();
-            loadXmlToDb(FileName, SchemeName, cs.Landmark, "dbo.Landmark");
+            LoadToDb(FileName, SchemeName, cs.Landmark, "dbo.Landmark");
         }
-        public void loadXmlToDb_StructureStatus(string FileName)
+        public void LoadToDb_StructureStatus(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             StructureStatuses cs = new StructureStatuses();
-            loadXmlToDb(ws, cs.StructureStatus, "dbo.StructureStatus");
+            LoadToDb(ws, cs.StructureStatus, "dbo.StructureStatus");
         }
-        public void loadXmlToDb_RoomTypes(string FileName)
+        public void LoadToDb_RoomTypes(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             OperationStatuses cs = new OperationStatuses();
-            loadXmlToDb(ws, cs.OperationStatus, "dbo.RoomType");
+            LoadToDb(ws, cs.OperationStatus, "dbo.RoomType");
         }
 
-        public void loadXmlToDb_FlatTypes(string FileName)
+        public void LoadToDb_FlatTypes(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             OperationStatuses cs = new OperationStatuses();
-            loadXmlToDb(ws, cs.OperationStatus, "dbo.FlatType");
+            LoadToDb(ws, cs.OperationStatus, "dbo.FlatType");
         }
 
-        public void loadXmlToDb_OperationStatus(string FileName)
+        public void LoadToDb_OperationStatus(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             OperationStatuses cs = new OperationStatuses();
-            loadXmlToDb(ws, cs.OperationStatus, "dbo.OperationStatus");
+            LoadToDb(ws, cs.OperationStatus, "dbo.OperationStatus");
         }
-        public void loadXmlToDb_IntervalStatus(string FileName)
+        public void LoadToDb_IntervalStatus(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             IntervalStatuses cs = new IntervalStatuses();
-            loadXmlToDb(ws, cs.IntervalStatus, "dbo.IntervalStatus");
+            LoadToDb(ws, cs.IntervalStatus, "dbo.IntervalStatus");
         }
-        public void loadXmlToDb_HouseStateStatus(string FileName)
+        public void LoadToDb_HouseStateStatus(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             HouseStateStatuses cs = new HouseStateStatuses();
-            loadXmlToDb(ws, cs.HouseStateStatus, "dbo.HouseStateStatus");
+            LoadToDb(ws, cs.HouseStateStatus, "dbo.HouseStateStatus");
         }
-        public void loadXmlToDb_HousesInterval(string FileName)
+        public void LoadToDb_HousesInterval(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             HouseIntervals cs = new HouseIntervals();
-            loadXmlToDb(ws, cs.HouseInterval, "dbo.HouseInterval");
+            LoadToDb(ws, cs.HouseInterval, "dbo.HouseInterval");
         }
-        public void loadXmlToDb_AddressObjectTypes(string FileName)
+        public void LoadToDb_AddressObjectTypes(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             AddressObjectTypes cs = new AddressObjectTypes();
-            loadXmlToDb(ws, cs.AddressObjectType, "dbo.AddressObjectType");
+            LoadToDb(ws, cs.AddressObjectType, "dbo.AddressObjectType");
         }
-        public void loadXmlToDb_Houses(string FileName)
+        public void LoadToDb_Houses(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             Houses cs = new Houses();
-            loadXmlToDb(ws, cs.House, "dbo.House");
+            LoadToDb(ws, cs.House, "dbo.House");
         }
-        public void loadXmlToDb_CenterStatuses(string FileName)
+        public void LoadToDb_CenterStatuses(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             CenterStatuses cs = new CenterStatuses();
-            loadXmlToDb(ws, cs.CenterStatus, "dbo.CenterStatus");
+            LoadToDb(ws, cs.CenterStatus, "dbo.CenterStatus");
         }
-        public void loadXmlToDb_EstateStatuses(string FileName)
+        public void LoadToDb_EstateStatuses(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             EstateStatuses cs = new EstateStatuses();
-            loadXmlToDb(ws, cs.EstateStatus, "dbo.EstateStatus");
+            LoadToDb(ws, cs.EstateStatus, "dbo.EstateStatus");
         }
-        public void loadXmlToDb_CurrentStatus(string FileName)
+        public void LoadToDb_CurrentStatus(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             CurrentStatuses cs = new CurrentStatuses();
-            loadXmlToDb(ws, cs.CurrentStatus, "dbo.CurrentStatus");
+            LoadToDb(ws, cs.CurrentStatus, "dbo.CurrentStatus");
         }
 
-        public void loadXmlToDb(string wFile, DataTable wTable, string TableName)
+        public void LoadToDb(string wFile, DataTable wTable, string TableName)
         {
             XmlReader wReader = XmlReader.Create(wFile);
-            loadXmlToDb(wReader, wTable, TableName);
+            LoadToDb(wReader, wTable, TableName);
         }
 
-        public void loadXmlToDb(string wFile, string wScheme, DataTable wTable, string TableName)
+        public void LoadToDb(string wFile, string wScheme, DataTable wTable, string TableName)
         {
             XmlReader wReader;
             if (wScheme != "")
@@ -171,7 +170,7 @@ namespace Fias.Operators
             {
                 wReader = XmlReader.Create(wFile);
             }
-            loadXmlToDb(wReader, wTable, TableName);
+            LoadToDb(wReader, wTable, TableName);
         }
         void SettingsValidationEventHandler(object sender, ValidationEventArgs e)
         {
@@ -187,10 +186,10 @@ namespace Fias.Operators
             }
         }
 
-        public void loadXmlToDb(Stream wStream, DataTable wTable, string TableName)
+        public void LoadToDb(Stream wStream, DataTable wTable, string TableName)
         {
             XmlReader wReader = XmlReader.Create(wStream);
-            this.loadXmlToDb(wReader, wTable, TableName);
+            this.LoadToDb(wReader, wTable, TableName);
         }
         public void loadDBFToDb(FileInfo dbfFile, string TableName, SqlConnection connection)
         {
@@ -263,7 +262,7 @@ namespace Fias.Operators
             dbfTable.Dispose();
             dbfFile.Delete();
         }
-        public void loadXmlToDb(XmlReader wReader, DataTable wTable, string TableName)
+        public void LoadToDb(XmlReader wReader, DataTable wTable, string TableName)
         {
             wTable.BeginLoadData();
             wTable.ReadXml(wReader);
@@ -302,98 +301,98 @@ namespace Fias.Operators
             }
         }
 
-        public void loadXmlToDb_ActualStatus(string FileName)
+        public void LoadToDb_ActualStatus(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             ActualStatuses cs = new ActualStatuses();
-            loadXmlToDb(ws, cs.ActualStatus, "dbo.ActualStatus");
+            LoadToDb(ws, cs.ActualStatus, "dbo.ActualStatus");
         }
 
 
-        public void loadXmlToDb_AddressObjects(string FileName)
+        public void LoadToDb_AddressObjects(string FileName)
         {
             FileStream ws;
             ws = File.OpenRead(FileName);
             AddressObjects cs = new AddressObjects();
-            loadXmlToDb(ws, cs.Object, "dbo.Object");
+            LoadToDb(ws, cs.Object, "dbo.Object");
         }
 
 
         public void LoadXML() {
             //загрузка вспомогательных таблиц
             /* foreach (FileInfo f in rootdir.GetFiles("AS_ACTSTAT*"))
-             { fiasXMLDataSetConverter.loadXmlToDb_ActualStatus(f.FullName); }
+             { fiasXMLDataSetConverter.LoadToDb_ActualStatus(f.FullName); }
 
              foreach (FileInfo f in rootdir.GetFiles("AS_ESTSTAT_*"))
-             { fiasXMLDataSetConverter.loadXmlToDb_EstateStatuses(f.FullName); }
+             { fiasXMLDataSetConverter.LoadToDb_EstateStatuses(f.FullName); }
 
              foreach (FileInfo f in rootdir.GetFiles("AS_CENTERST*"))
-             { fiasXMLDataSetConverter.loadXmlToDb_CenterStatuses(f.FullName); }
+             { fiasXMLDataSetConverter.LoadToDb_CenterStatuses(f.FullName); }
 
              foreach (FileInfo f in rootdir.GetFiles("AS_CURENTST*"))
-             { fiasXMLDataSetConverter.loadXmlToDb_CurrentStatus(f.FullName); }
+             { fiasXMLDataSetConverter.LoadToDb_CurrentStatus(f.FullName); }
 
              foreach (FileInfo f in rootdir.GetFiles("AS_HSTSTAT*"))
-             {fiasXMLDataSetConverter.loadXmlToDb_HouseStateStatus(f.FullName);}
+             {fiasXMLDataSetConverter.LoadToDb_HouseStateStatus(f.FullName);}
 
              foreach (FileInfo f in rootdir.GetFiles("AS_INTVSTAT*"))
-             { fiasXMLDataSetConverter.loadXmlToDb_IntervalStatus(f.FullName); }
+             { fiasXMLDataSetConverter.LoadToDb_IntervalStatus(f.FullName); }
 
              foreach (FileInfo f in rootdir.GetFiles("AS_OPERSTAT*"))
 
-             { fiasXMLDataSetConverter.loadXmlToDb_OperationStatus(f.FullName); }
+             { fiasXMLDataSetConverter.LoadToDb_OperationStatus(f.FullName); }
 
              foreach (FileInfo f in rootdir.GetFiles("AS_STRSTAT*"))
-             { fiasXMLDataSetConverter.loadXmlToDb_StructureStatus(f.FullName); }
+             { fiasXMLDataSetConverter.LoadToDb_StructureStatus(f.FullName); }
 
              foreach (FileInfo f in rootdir.GetFiles("AS_SOCRBASE*"))
-             { fiasXMLDataSetConverter.loadXmlToDb_AddressObjectTypes(f.FullName); }
+             { fiasXMLDataSetConverter.LoadToDb_AddressObjectTypes(f.FullName); }
 
              foreach (FileInfo f in rootdir.GetFiles("AS_NDOCTYPE*"))
-             { fiasXMLDataSetConverter.loadXmlToDb_NormativeDocumentTypes(f.FullName); }
+             { fiasXMLDataSetConverter.LoadToDb_NormativeDocumentTypes(f.FullName); }
 
              foreach (FileInfo f in rootdir.GetFiles("AS_ROOMTYPE*"))
              {
-                 fiasXMLDataSetConverter.loadXmlToDb_RoomTypes(f.FullName);
+                 fiasXMLDataSetConverter.LoadToDb_RoomTypes(f.FullName);
              }
              foreach (FileInfo f in rootdir.GetFiles("AS_FLATTYPE*"))
              {
-                 fiasXMLDataSetConverter.loadXmlToDb_FlatTypes(f.FullName);
+                 fiasXMLDataSetConverter.LoadToDb_FlatTypes(f.FullName);
              }
 
              //загрузка основных таблиц
 
              foreach (FileInfo f in rootdir.GetFiles("AS_ADDROBJ*"))
-             { fiasXMLDataSetConverter.loadXmlToDb_AddressObjects(f.FullName);}
+             { fiasXMLDataSetConverter.LoadToDb_AddressObjects(f.FullName);}
 
              foreach (FileInfo f in rootdir.GetFiles("AS_HOUSEINT*"))
              {
-                 fiasXMLDataSetConverter.loadXmlToDb_HousesInterval(f.FullName);
+                 fiasXMLDataSetConverter.LoadToDb_HousesInterval(f.FullName);
              }
              foreach (FileInfo f in rootdir.GetFiles("AS_LANDMARK*"))
              {
-                 fiasXMLDataSetConverter.loadXmlToDb_Landmark(f.FullName);}
+                 fiasXMLDataSetConverter.LoadToDb_Landmark(f.FullName);}
 
              foreach (FileInfo f in rootdir.GetFiles("AS_STEAD*"))
              {
-                 fiasXMLDataSetConverter.loadXmlToDb_Stead(f.FullName);
+                 fiasXMLDataSetConverter.LoadToDb_Stead(f.FullName);
              }
              foreach (FileInfo f in rootdir.GetFiles("AS_ROOM*"))
              {
-                 fiasXMLDataSetConverter.loadXmlToDb_Room(f.FullName);
+                 fiasXMLDataSetConverter.LoadToDb_Room(f.FullName);
              }
              foreach (FileInfo f in rootdir.GetFiles("AS_NORMDOC*"))
              {
-                 fiasXMLDataSetConverter.loadXmlToDb_NormativeDocument(f.FullName);
+                 fiasXMLDataSetConverter.LoadToDb_NormativeDocument(f.FullName);
              }
              foreach (FileInfo f in rootdir.GetFiles("AS_HOUSE*"))
              {
-                 fiasXMLDataSetConverter.loadXmlToDb_Houses(f.FullName);
+                 fiasXMLDataSetConverter.LoadToDb_Houses(f.FullName);
              }
              foreach (FileInfo f in rootdir.GetFiles("AS_HOUSE*"))
              {
-                 fiasXMLDataSetConverter.loadXmlToDb_Houses_Entityes(f.FullName);
+                 fiasXMLDataSetConverter.LoadToDb_Houses_Entityes(f.FullName);
              }*/
         }
 
@@ -500,7 +499,7 @@ namespace Fias.Operators
 
         /*foreach (FileInfo f in rootdir.GetFiles("*"))
         {
-            fiasXMLDataSetConverter.loadXmlToDb_NormativeDocumentTypes(f.FullName);
+            fiasXMLDataSetConverter.LoadToDb_NormativeDocumentTypes(f.FullName);
         }*/
 
         //bulkList.Add(new BulkTableListItem("ActualStatus", "fias_tmp", (rootdir).GetFiles("ACTSTAT.DBF")[0]));

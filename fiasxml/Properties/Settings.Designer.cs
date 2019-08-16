@@ -12,7 +12,7 @@ namespace Fias.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.1.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -63,6 +63,30 @@ namespace Fias.Properties {
         public string UNSConnectionString {
             get {
                 return ((string)(this["UNSConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Dsn=wwwww;dbq=C:\\USERS\\BUSHMAKIN\\DOCUMENTS\\НОВАЯ ПАПКА\\COMPRESSED\\FIAS_DBF;defaul" +
+            "tdir=C:\\USERS\\BUSHMAKIN\\DOCUMENTS\\НОВАЯ ПАПКА\\COMPRESSED\\FIAS_DBF;driverid=533;f" +
+            "il=dBase 5.0;maxbuffersize=2048;pagetimeout=5")]
+        public string DBF {
+            get {
+                return ((string)(this["DBF"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Dsn=wwwww;dbq=C:\\USERS\\BUSHMAKIN\\DOCUMENTS\\НОВАЯ ПАПКА\\COMPRESSED\\FIAS_DBF;defaul" +
+            "tdir=C:\\USERS\\BUSHMAKIN\\DOCUMENTS\\НОВАЯ ПАПКА\\COMPRESSED\\FIAS_DBF;driverid=533;f" +
+            "il=dBase 5.0;maxbuffersize=2048;pagetimeout=5")]
+        public string ConnectionString1 {
+            get {
+                return ((string)(this["ConnectionString1"]));
             }
         }
     }

@@ -15,12 +15,17 @@ namespace Fias.Operators
         protected DirectoryInfo Rootdir;
         protected string SchemaName;
         protected dsMain ds = new dsMain();
+        protected string ConnectionString;
         public FiasOperator(DirectoryInfo rootdir, SqlConnection connection, string schemaname)
         {
             Connection = connection;
             Rootdir = rootdir;
             SchemaName = schemaname;
+            ConnectionString = connection.ConnectionString;
         }
+
+        public FiasOperator(DirectoryInfo rootdir, string connectionString, string schemaname):this (rootdir,new SqlConnection(connectionString),schemaname)
+        { ConnectionString = connectionString;  }
         protected void LogInfo(string message)
         { Console.WriteLine(message); }
     }

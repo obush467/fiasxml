@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fiasxml", "fiasxml\fiasxml.csproj", "{4D6616A4-41C5-44DC-872D-72A0A5758D3D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fias", "fiasxml\Fias.csproj", "{4D6616A4-41C5-44DC-872D-72A0A5758D3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestFias", "UnitTestFias\UnitTestFias\UnitTestFias.csproj", "{0A4075B3-14C9-4E19-87C1-D7D35CBDEE4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiasLoader", "FiasLoader\FiasLoader.csproj", "{BF34D412-1448-4891-A426-6F52F5F05FD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +25,27 @@ Global
 		{4D6616A4-41C5-44DC-872D-72A0A5758D3D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4D6616A4-41C5-44DC-872D-72A0A5758D3D}.Release|x64.ActiveCfg = Release|x64
 		{4D6616A4-41C5-44DC-872D-72A0A5758D3D}.Release|x64.Build.0 = Release|x64
+		{0A4075B3-14C9-4E19-87C1-D7D35CBDEE4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A4075B3-14C9-4E19-87C1-D7D35CBDEE4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A4075B3-14C9-4E19-87C1-D7D35CBDEE4C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0A4075B3-14C9-4E19-87C1-D7D35CBDEE4C}.Debug|x64.Build.0 = Debug|Any CPU
+		{0A4075B3-14C9-4E19-87C1-D7D35CBDEE4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A4075B3-14C9-4E19-87C1-D7D35CBDEE4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A4075B3-14C9-4E19-87C1-D7D35CBDEE4C}.Release|x64.ActiveCfg = Release|Any CPU
+		{0A4075B3-14C9-4E19-87C1-D7D35CBDEE4C}.Release|x64.Build.0 = Release|Any CPU
+		{BF34D412-1448-4891-A426-6F52F5F05FD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF34D412-1448-4891-A426-6F52F5F05FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF34D412-1448-4891-A426-6F52F5F05FD7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BF34D412-1448-4891-A426-6F52F5F05FD7}.Debug|x64.Build.0 = Debug|Any CPU
+		{BF34D412-1448-4891-A426-6F52F5F05FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF34D412-1448-4891-A426-6F52F5F05FD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF34D412-1448-4891-A426-6F52F5F05FD7}.Release|x64.ActiveCfg = Release|Any CPU
+		{BF34D412-1448-4891-A426-6F52F5F05FD7}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {392D3C32-60F1-4B18-BD5F-501D0D90C05A}
 	EndGlobalSection
 EndGlobal

@@ -34,5 +34,20 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=BUSHMAKIN;Initial Catalog=UNS;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="DBF" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Dsn=wwwww;dbq=C:\USERS\BUSHMAKIN\DOCUMENTS\НОВАЯ ПАПКА\COMPRESSED\FIAS_DBF;defaultdir=C:\USERS\BUSHMAKIN\DOCUMENTS\НОВАЯ ПАПКА\COMPRESSED\FIAS_DBF;driverid=533;fil=dBase 5.0;maxbuffersize=2048;pagetimeout=5&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Dsn=wwwww;dbq=C:\USERS\BUSHMAKIN\DOCUMENTS\НОВАЯ ПАПКА\COMPRESSED\FIAS_DBF;defaultdir=C:\USERS\BUSHMAKIN\DOCUMENTS\НОВАЯ ПАПКА\COMPRESSED\FIAS_DBF;driverid=533;fil=dBase 5.0;maxbuffersize=2048;pagetimeout=5</Value>
+    </Setting>
+    <Setting Name="ConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Dsn=wwwww;dbq=C:\USERS\BUSHMAKIN\DOCUMENTS\НОВАЯ ПАПКА\COMPRESSED\FIAS_DBF;defaultdir=C:\USERS\BUSHMAKIN\DOCUMENTS\НОВАЯ ПАПКА\COMPRESSED\FIAS_DBF;driverid=533;fil=dBase 5.0;maxbuffersize=2048;pagetimeout=5&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.Odbc&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Dsn=wwwww;dbq=C:\USERS\BUSHMAKIN\DOCUMENTS\НОВАЯ ПАПКА\COMPRESSED\FIAS_DBF;defaultdir=C:\USERS\BUSHMAKIN\DOCUMENTS\НОВАЯ ПАПКА\COMPRESSED\FIAS_DBF;driverid=533;fil=dBase 5.0;maxbuffersize=2048;pagetimeout=5</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
