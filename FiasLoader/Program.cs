@@ -4,29 +4,36 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Fias.Loaders;
 using Fias.Operators;
 
 namespace FiasLoader
 {
     class Program
     {
+        
+
             // [STAThread]
-            public static string ConnectionString = "Data Source=BUSHMAKIN;Initial Catalog=UNS;Integrated Security=True";
+            public static string ConnectionString = "Data Source=BUSHMAKIN;Initial Catalog=UNS;Integrated Security=True;Connection Timeout=1000000";
             public static string DBF_Directory = "C:\\Temp";
             public static string XML_Directory = "C:\\Users\\PEG1\\Downloads\\Compressed\\fias_dbf";
             public static string schemaname = "fias_tmp";
             //public static FiasOperatorXML fiasXMLDataSetConverter = new FiasOperatorXML(new DirectoryInfo(XML_Directory), connection, schemaname);
             private static FiasOperatorDBF fiasDBFDataSetConverter = new FiasOperatorDBF(new DirectoryInfo(DBF_Directory), ConnectionString, schemaname);
-            static void Main(string[] args)
+        
+        static void Main(string[] args)
             {
             fiasDBFDataSetConverter.MergeTmp();
+            WebLoader soap = new WebLoader();
+            soap.Load(false,new DirectoryInfo("c:\\Temp\\"),DateTime.Now);
+
                 try
                 {
-                    fiasDBFDataSetConverter.Load("fias_tmp");
+                    fiasDBFDataSetConverter.Load();
                     // fiasXMLDataSetConverter.Load();
                 }
                 finally { }
-
+                
             }
 
         }

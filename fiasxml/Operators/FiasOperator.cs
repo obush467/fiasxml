@@ -14,11 +14,10 @@ namespace Fias.Operators
         protected SqlConnection Connection { get; set; }
         protected DirectoryInfo Rootdir;
         protected string SchemaName;
-        protected dsMain ds = new dsMain();
         protected string ConnectionString;
         public FiasOperator(DirectoryInfo rootdir, SqlConnection connection, string schemaname)
         {
-            Connection = connection;
+            Connection = connection;           
             Rootdir = rootdir;
             SchemaName = schemaname;
             ConnectionString = connection.ConnectionString;
