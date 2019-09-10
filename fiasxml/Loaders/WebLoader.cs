@@ -22,6 +22,7 @@ namespace Fias.Loaders
             var actual = webClient.DownloadString(Actual);
             if (!string.IsNullOrEmpty(actual))
             {
+                if (!destinationDir.Exists) destinationDir.Create();
                 var actdate = DateTime.Parse(actual);
                 if (actdate > LastLoad)
                     return await Load(fullBase, destinationDir);
@@ -36,7 +37,7 @@ namespace Fias.Loaders
             string tempPath = Path.Combine(System.IO.Path.GetTempPath(), "fias_dbf_"+((fullBase) ? "delta_":"") + DateTime.Now.ToShortDateString() + ".rar");
             try
             {
-                webClient.DownloadFileAsync((fullBase ? FullUri : DeltaUri), tempPath);
+                webClient.DownloadFile((fullBase ? FullUri : DeltaUri), tempPath);
                 using (ArchiveFile archiveFile = new ArchiveFile(tempPath))
                 {
                     archiveFile.Extract(destinationDir.FullName);

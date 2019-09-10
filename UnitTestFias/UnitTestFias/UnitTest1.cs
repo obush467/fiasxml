@@ -14,7 +14,7 @@ namespace UnitTestFias
             var conn = new SqlConnection("Data Source=BUSHMAKIN;Initial Catalog=UNS;Integrated Security=True");
             conn.Open();
             var b = new FiasOperatorDBF(new System.IO.DirectoryInfo("C:\\Users\\Bushmakin\\Documents\\Новая папка\\Compressed\\fias_dbf"), conn, "dbo");
-            b.Load("ttt");
+            b.Load();
         }
     }
 }

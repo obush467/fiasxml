@@ -157,9 +157,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BulkTableListItem.cs" />
     <Compile Include="DBFDataReade.cs" />
-    <Compile Include="dsMain.cs" />
-    <Compile Include="dsMain.Designer.cs" />
     <Compile Include="Loaders\SoapLoader.cs" />
     <Compile Include="Loaders\WebLoader.cs" />
     <Compile Include="Operators\FiasOperatorDBF.cs" />
@@ -175,11 +174,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Operators\FiasOperatorXML.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="dsMain.xsd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
