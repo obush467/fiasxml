@@ -1,11 +1,12 @@
-﻿using SevenZipExtractor;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using SharpCompress.Archives;
+using SharpCompress.Archives.Rar;
 
 namespace Fias.Loaders
 {
@@ -17,7 +18,7 @@ namespace Fias.Loaders
         protected WebClient webClient = new WebClient();
     public WebLoader()
         { }
-        public async Task<bool> Load(bool fullBase, DirectoryInfo destinationDir, DateTime LastLoad)
+        public Task<bool> Load(bool fullBase, DirectoryInfo destinationDir, DateTime LastLoad)
         {
             var actual = webClient.DownloadString(Actual);
             if (!string.IsNullOrEmpty(actual))
@@ -25,25 +26,27 @@ namespace Fias.Loaders
                 if (!destinationDir.Exists) destinationDir.Create();
                 var actdate = DateTime.Parse(actual);
                 if (actdate > LastLoad)
-                    return await Load(fullBase, destinationDir);
+                    return Load(fullBase, destinationDir);
                 else
-                    return false;
+                    return null;
             }
             else
-                return false;
+                return null;
         }
         public async Task<bool> Load(bool fullBase,DirectoryInfo destinationDir)
         {
-            string tempPath = Path.Combine(System.IO.Path.GetTempPath(), "fias_dbf_"+((fullBase) ? "delta_":"") + DateTime.Now.ToShortDateString() + ".rar");
+            string tempPath = Path.Combine(destinationDir.FullName, "fias_dbf_"+((fullBase) ? "delta_":"") + DateTime.Now.ToShortDateString() + ".rar");
             try
             {
                 webClient.DownloadFile((fullBase ? FullUri : DeltaUri), tempPath);
-                using (ArchiveFile archiveFile = new ArchiveFile(tempPath))
-                {
-                    archiveFile.Extract(destinationDir.FullName);
+                RarArchive archive = RarArchive.Open(tempPath);
+                   
+                    foreach (RarArchiveEntry item in archive.Entries)
+                    {
+                        item.WriteToDirectory(destinationDir.FullName);
+                    }
                     File.Delete(tempPath);
                     return true;
-                }
             }
             catch (Exception e)
             { return false; }

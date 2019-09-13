@@ -6,11 +6,12 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Text;
-using DbfDataReader;
-using Microsoft.Extensions.Options;
+//using DbfDataReader;
+//using Microsoft.Extensions.Options;
 using System.Diagnostics;
 using fias.SQL.DataSets;
 using Fias.Loaders;
+using Logger;
 
 namespace Fias.Operators
 {
@@ -47,10 +48,10 @@ namespace Fias.Operators
                             if (btlItem.File != null && btlItem.TableName != null && btlItem.TableSchema != null)
                             {
                                 DateTime _start = DateTime.Now;
-                                LogInfo(btlItem.File.Name + " запущено");
+                                Logger.Logger.Info(btlItem.File.Name + " запущено");
                                 LoadToDb(btlItem.File, btlItem.TableName);
                                 DateTime _end = DateTime.Now;
-                                LogInfo(btlItem.File.Name + " закончено за " + (_end - _start).TotalSeconds.ToString() + " секунд");
+                                Logger.Logger.Info(btlItem.File.Name + " закончено за " + (_end - _start).TotalSeconds.ToString() + " секунд");
                             }
                         }
                     }
@@ -61,9 +62,9 @@ namespace Fias.Operators
                 
             };
         }
-        public async void DownloadFromSite(bool fullDB,DateTime LastDownload)
+        public void DownloadFromSite(bool fullDB,DateTime LastDownload)
         {
-            await soap.Load(fullDB, Rootdir, LastDownload);
+            soap.Load(fullDB, Rootdir, LastDownload);
         }
         public void SetBulkLists()
         {

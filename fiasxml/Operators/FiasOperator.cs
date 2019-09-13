@@ -10,6 +10,7 @@ namespace Fias.Operators
 {
     public class FiasOperator
     {
+        
         protected SqlConnection Connection { get; set; }
         protected DirectoryInfo Rootdir;
         protected string SchemaName;
@@ -20,11 +21,10 @@ namespace Fias.Operators
             Rootdir = rootdir;
             SchemaName = schemaname;
             ConnectionString = connection.ConnectionString;
+            Logger.Logger.InitLogger();
         }
 
         public FiasOperator(DirectoryInfo rootdir, string connectionString, string schemaname):this (rootdir,new SqlConnection(connectionString),schemaname)
-        { ConnectionString = connectionString;  }
-        protected void LogInfo(string message)
-        { Console.WriteLine(message); }
+        { }
     }
 }
