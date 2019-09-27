@@ -18,7 +18,7 @@ namespace Fias.Loaders
         protected WebClient webClient = new WebClient();
     public WebLoader()
         { }
-        public Task<bool> Load(bool fullBase, DirectoryInfo destinationDir, DateTime LastLoad)
+        public Nullable<DateTime> Load(bool fullBase, DirectoryInfo destinationDir, DateTime LastLoad)
         {
             var actual = webClient.DownloadString(Actual);
             if (!string.IsNullOrEmpty(actual))
@@ -26,10 +26,17 @@ namespace Fias.Loaders
                 if (!destinationDir.Exists) destinationDir.Create();
                 var actdate = DateTime.Parse(actual);
                 if (actdate > LastLoad)
-                    return Load(fullBase, destinationDir);
+                {
+                    if (Load(fullBase, destinationDir).Result)
+                    {
+                        return actdate;
+                    }
+                    else
+                        return null;
+                }
                 else
                     return null;
-            }
+                }
             else
                 return null;
         }
@@ -39,12 +46,13 @@ namespace Fias.Loaders
             try
             {
                 webClient.DownloadFile((fullBase ? FullUri : DeltaUri), tempPath);
-                RarArchive archive = RarArchive.Open(tempPath);
-                   
+                using (RarArchive archive = RarArchive.Open(tempPath))
+                {
                     foreach (RarArchiveEntry item in archive.Entries)
                     {
                         item.WriteToDirectory(destinationDir.FullName);
                     }
+                }
                     File.Delete(tempPath);
                     return true;
             }

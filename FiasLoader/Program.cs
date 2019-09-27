@@ -23,12 +23,9 @@ namespace FiasLoader
         
         static void Main(string[] args)
             {
-
-
-
                 try
                 {
-                    fiasDBFDataSetConverter.DownloadFromSite(false,DateTime.Parse("2019-09-09"));
+                    fiasDBFDataSetConverter.DownloadFromSite(false);
                     fiasDBFDataSetConverter.Load();
                 }
                 finally { }

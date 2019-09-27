@@ -187,6 +187,57 @@
       <Name>SharpCompress</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SQL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClearTables.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE fias.ActualStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE fias.AddressObjectType.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE fias.CenterStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE fias.CurrentStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE fias.EstateStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE fias.House.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE fias.HouseStateStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE fias.NormativeDocumentType.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE fias.Object.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE fias.OperationStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE fias.Room.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE fias.RoomType.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE fias.Stead.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE fias.StructureStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClearTables_fias_tmp.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SevenZipExtractor.1.0.13\build\SevenZipExtractor.targets" Condition="Exists('..\packages\SevenZipExtractor.1.0.13\build\SevenZipExtractor.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
