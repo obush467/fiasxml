@@ -14,12 +14,12 @@ namespace FiasLoader
 
 
             // [STAThread]
-            public static string ConnectionString = "Data Source=BUSHMAKIN;Initial Catalog=UNS;Integrated Security=True;Connection Timeout=1000000";
+            public static string ConnectionString = "Data Source=BUSHMAKIN;Initial Catalog=UNS;Integrated Security=True;Connection Timeout=1000000000";
             public static string DBF_Directory = "C:\\Temp1";
             public static string XML_Directory = "C:\\Users\\PEG1\\Downloads\\Compressed\\fias_dbf";
             public static string schemaname = "fias_tmp";
             //public static FiasOperatorXML fiasXMLDataSetConverter = new FiasOperatorXML(new DirectoryInfo(XML_Directory), connection, schemaname);
-            private static FiasOperatorDBF fiasDBFDataSetConverter = new FiasOperatorDBF(new DirectoryInfo(DBF_Directory), ConnectionString, schemaname);
+            private static readonly FiasOperatorDBF fiasDBFDataSetConverter = new FiasOperatorDBF(new DirectoryInfo(DBF_Directory), ConnectionString, schemaname);
         
         static void Main(string[] args)
             {
@@ -27,11 +27,10 @@ namespace FiasLoader
                 {
                     fiasDBFDataSetConverter.DownloadFromSite(false);
                     fiasDBFDataSetConverter.Load();
+                    fiasDBFDataSetConverter.MergeDB();
                 }
-                finally { }
-                
+                finally { }                
             }
-
         }
     }
     
