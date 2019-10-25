@@ -19,4 +19,4 @@ MERGE fias.NormativeDocumentType AS o
             ,tmpo.[NAME]         
           )
 OUTPUT inserted.NDTYPEID INTO @Upserted(ID);
-delete from fias_tmp.NormativeDocumentType where NDTYPEID in (select ID from @upserted)
+delete from fias_tmp.NormativeDocumentType

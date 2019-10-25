@@ -1,25 +1,25 @@
 DECLARE @upserted TABLE (ID int)
-MERGE fias.EstateStatus AS o
+MERGE fias.StructureStatus AS o
   USING
-    fias_tmp.EstateStatus tmpo
-  ON o.ESTSTATID=tmpo.ESTSTATID
+    #StructureStatus tmpo
+  ON o.STRSTATID=tmpo.STRSTATID
   WHEN MATCHED AND 
     (
       dbo.eq(o.NAME,tmpo.NAME)=0
 	  OR
 	  dbo.eq(o.SHORTNAME,tmpo.SHORTNAME)=0
-	)
+  )
   THEN UPDATE SET 
 		NAME=tmpo.NAME
   WHEN NOT MATCHED
   THEN  INSERT (
-				ESTSTATID,NAME,SHORTNAME
-				)
+            STRSTATID,NAME,SHORTNAME
+)
         VALUES
           (
-            tmpo.ESTSTATID
+            tmpo.STRSTATID
             ,tmpo.[NAME]
-			,tmpo.SHORTNAME         
+			,tmpo.SHORTNAME          
           )
-OUTPUT inserted.ESTSTATID INTO @Upserted(ID);
-delete from fias_tmp.EstateStatus
+OUTPUT inserted.STRSTATID INTO @Upserted(ID);
+delete from #StructureStatus

@@ -1,8 +1,8 @@
 DECLARE @upserted TABLE (ID int)
-MERGE fias.CurrentStatus AS o
+MERGE fias.CenterStatus AS o
   USING
-    fias_tmp.CurrentStatus tmpo
-  ON o.CURENTSTID=tmpo.CURENTSTID
+    ##CenterStatus tmpo
+  ON o.CENTERSTID=tmpo.CENTERSTID
   WHEN MATCHED AND 
     (
       dbo.eq(o.NAME,tmpo.NAME)=0
@@ -12,13 +12,13 @@ MERGE fias.CurrentStatus AS o
 		NAME=tmpo.NAME
   WHEN NOT MATCHED
   THEN  INSERT (
-            CURENTSTID,[NAME]
+            [CENTERSTID],[NAME]
 )
         VALUES
           (
-            tmpo.CURENTSTID
+            tmpo.[CENTERSTID]
             ,tmpo.[NAME]
           
           )
-OUTPUT inserted.CURENTSTID INTO @Upserted(ID);
-delete from fias_tmp.CurrentStatus
+OUTPUT inserted.[CENTERSTID] INTO @Upserted(ID);
+delete from ##CenterStatus

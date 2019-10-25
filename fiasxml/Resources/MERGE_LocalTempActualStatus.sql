@@ -1,7 +1,7 @@
 DECLARE @upserted TABLE (ID int)
 MERGE fias.ActualStatus AS o
   USING
-    fias_tmp.ActualStatus tmpo
+    #ActualStatus tmpo
   ON o.ACTSTATID=tmpo.ACTSTATID
   WHEN MATCHED AND 
     (
@@ -15,4 +15,4 @@ MERGE fias.ActualStatus AS o
         VALUES
           (tmpo.[ACTSTATID],tmpo.[NAME])
 OUTPUT inserted.[ACTSTATID] INTO @Upserted(ID);
-delete from fias_tmp.ActualStatus
+delete from #ActualStatus

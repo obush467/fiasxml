@@ -1,8 +1,8 @@
 DECLARE @upserted TABLE (ID int)
-MERGE fias.HouseStateStatus AS o
+MERGE fias.OperationStatus AS o
   USING
-    fias_tmp.HouseStateStatus tmpo
-  ON o.HOUSESTID=tmpo.HOUSESTID
+    ##OperationStatus tmpo
+  ON o.OPERSTATID=tmpo.OPERSTATID
   WHEN MATCHED AND 
     (
       dbo.eq(o.NAME,tmpo.NAME)=0
@@ -11,12 +11,12 @@ MERGE fias.HouseStateStatus AS o
 		NAME=tmpo.NAME
   WHEN NOT MATCHED
   THEN  INSERT (
-            HOUSESTID,NAME
+            OPERSTATID,NAME
 )
         VALUES
           (
-            tmpo.HOUSESTID
+            tmpo.OPERSTATID
             ,tmpo.[NAME]         
           )
-OUTPUT inserted.HOUSESTID INTO @Upserted(ID);
-delete from fias_tmp.HouseStateStatus 
+OUTPUT inserted.OPERSTATID INTO @Upserted(ID);
+delete from ##OperationStatus

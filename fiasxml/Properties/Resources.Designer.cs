@@ -83,6 +83,84 @@ namespace Fias.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на CREATE TABLE ##ActualStatus(
+        ///	ACTSTATID int NOT NULL,
+        ///	NAME nvarchar(100) NOT NULL
+        ///) 
+        ///CREATE TABLE ##AddressObjectType(
+        ///	LEVEL int NOT NULL,
+        ///	SCNAME nvarchar(10) NULL,
+        ///	SOCRNAME nvarchar(50) NULL,
+        ///	KOD_T_ST varchar(4) NOT NULL,
+        /// CONSTRAINT PK_AddressObjectType PRIMARY KEY CLUSTERED 
+        ///(
+        ///	LEVEL ASC,
+        ///	KOD_T_ST ASC
+        ///)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) 
+        ///) 
+        ///CREATE TABLE ##CenterStatus(
+        ///	CENTERSTID int NOT NULL,
+        ///	NA [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string CreateTempFiasTables {
+            get {
+                return ResourceManager.GetString("CreateTempFiasTables", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DROP TABLE ##ActualStatus
+        ///DROP TABLE ##AddressObjectType
+        ///DROP TABLE ##CenterStatus
+        ///DROP TABLE ##CurrentStatus
+        ///DROP TABLE ##Del_House
+        ///DROP TABLE ##Del_NormativeDocument
+        ///DROP TABLE ##Del_Object
+        ///DROP TABLE ##EstateStatus
+        ///DROP TABLE ##FlatType
+        ///DROP TABLE ##House
+        ///DROP TABLE ##HouseInterval
+        ///DROP TABLE ##HouseStateStatus
+        ///DROP TABLE ##IntervalStatus
+        ///DROP TABLE ##NormativeDocument
+        ///DROP TABLE ##NormativeDocumentType
+        ///DROP TABLE ##Object
+        ///DROP TABLE ##OperationStatus
+        ///DROP TABLE ##Room
+        ///DROP TABLE ##Room [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string DropTempFiasTables {
+            get {
+                return ResourceManager.GetString("DropTempFiasTables", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на declare @t [dbo].[REGIONCODES]
+        ///insert into @t ([REGIONCODE]) values (&apos;77&apos;),(&apos;50&apos;)
+        ///DECLARE @upserted TABLE (AOID uniqueidentifier)
+        ///MERGE address.AddressCached AS o
+        ///  USING
+        ///    (SELECT distinct [AddressID]
+        ///           ,[AddressGUID]
+        ///           ,[AddressPARENTGUID]
+        ///           ,[ItemAddress]
+        ///           ,[FullAddress]
+        ///           ,[ItemCategory]
+        ///           ,[ItemType]
+        ///           ,[STARTDATE]
+        ///           ,[ENDDATE] 
+        ///		   ,regioncode
+        ///		   FROM [fias].[AllAddressObjects_withFull] (&apos;, &apos;  ,1  ,@t)) tmpo
+        /// [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_address_Cached {
+            get {
+                return ResourceManager.GetString("MERGE_address_Cached", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
         ///MERGE fias.ActualStatus AS o
         ///  USING
@@ -100,8 +178,7 @@ namespace Fias.Properties {
         ///        VALUES
         ///          (tmpo.[ACTSTATID],tmpo.[NAME])
         ///OUTPUT inserted.[ACTSTATID] INTO @Upserted(ID);
-        ///delete from fias_tmp.ActualStatus where 
-        ///	   [ACTSTATID] in (select ID from @upserted).
+        ///delete from fias_tmp.ActualStatus.
         /// </summary>
         internal static string MERGE_fias_ActualStatus {
             get {
@@ -113,12 +190,12 @@ namespace Fias.Properties {
         ///   Ищет локализованную строку, похожую на MERGE fias.AddressObjectType AS o
         ///  USING
         ///    fias_tmp.AddressObjectType tmpo
-        ///  ON o.LEVEL=tmpo.LEVEL and o.SCNAME=tmpo.SCNAME
+        ///  ON o.LEVEL=tmpo.LEVEL and o.KOD_T_ST=tmpo.KOD_T_ST
         ///  WHEN MATCHED AND 
         ///    (
         ///      dbo.eq(o.SOCRNAME,tmpo.SOCRNAME)=0
         ///	  AND 
-        ///	  dbo.eq(o.KOD_T_ST,tmpo.KOD_T_ST)=0
+        ///	  dbo.eq(o.SCNAME,tmpo.SCNAME)=0
         ///  )
         ///  THEN UPDATE SET 
         ///		SOCRNAME=tmpo.SOCRNAME,
@@ -195,7 +272,7 @@ namespace Fias.Properties {
         ///          
         ///          )
         ///OUTPUT inserted.CURENTSTID INTO @Upserted(ID);
-        ///delete from fias_tmp.CurrentStatus [остаток строки не уместился]&quot;;.
+        ///delete from fias_tmp.CurrentStatus.
         /// </summary>
         internal static string MERGE_fias_CurrentStatus {
             get {
@@ -236,23 +313,23 @@ namespace Fias.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на WHILE (EXISTS (SELECT HOUSEID FROM fias_tmp.House))
+        ///   Ищет локализованную строку, похожую на 			DECLARE @upserted TABLE (
+        ///
+        ///				[HOUSEID] [uniqueidentifier] NOT NULL,
+        ///				INDEX IX3 NONCLUSTERED(HOUSEID)	) 
+        ///WHILE (EXISTS (SELECT HOUSEID FROM fias_tmp.House))
         ///	BEGIN TRY
         ///		BEGIN TRANSACTION
-        ///			DECLARE @upserted TABLE (
-        ///	[POSTALCODE] [varchar](6) NULL,
-        ///	[IFNSFL] [varchar](4) NULL,
-        ///	[TERRIFNSFL] [varchar](4) NULL,
-        ///	[IFNSUL] [varchar](4) NULL,
-        ///	[TERRIFNSUL] [varchar](4) NULL,
-        ///	[OKATO] [varchar](11) NULL,
-        ///	[OKTMO] [varchar](11) NULL,
-        ///	[UPDATEDATE] [smalldatetime] NULL,
-        ///	[HOUSENUM] [varchar](20) NULL,
-        ///	[ESTSTATUS] [int] NOT NULL,
-        ///	[BUILDNUM] [varchar](10) NULL,
-        ///	[STRUCNUM] [varchar](10) NULL,
-        ///	[STRSTA [остаток строки не уместился]&quot;;.
+        ///			MERGE TOP (100000) fias.House h
+        ///			USING fias_tmp.House th
+        ///			ON h.HOUSEID=th.HOUSEID
+        ///			WHEN MATCHED AND 
+        ///			  (
+        ///				dbo.eq(h.POSTALCODE,th.POSTALCODE)=0
+        ///				OR dbo.eq(h.IFNSFL,th.IFNSFL)=0
+        ///				OR dbo.eq(h.TERRIFNSFL,th.TERRIFNSFL)=0
+        ///				OR dbo.eq(h.IFNSUL,th.IFNSUL)=0
+        ///				OR dbo.eq(h.TERRIFNSUL, [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string MERGE_fias_House {
             get {
@@ -282,11 +359,32 @@ namespace Fias.Properties {
         ///            ,tmpo.[NAME]         
         ///          )
         ///OUTPUT inserted.HOUSESTID INTO @Upserted(ID);
-        ///delete from fias_tmp.HouseStateStatus whe [остаток строки не уместился]&quot;;.
+        ///delete from fias_tmp.HouseStateStatus .
         /// </summary>
         internal static string MERGE_fias_HouseStateStatus {
             get {
                 return ResourceManager.GetString("MERGE_fias_HouseStateStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на WHILE (EXISTS (SELECT * FROM fias_tmp.NormativeDocument))
+        ///	BEGIN TRY
+        ///		BEGIN TRANSACTION
+        ///			DECLARE @upserted TABLE (ID uniqueidentifier)
+        ///			MERGE fias.NormativeDocument nd
+        ///				USING (SELECT DISTINCT * FROM (SELECT TOP 100000 * FROM fias_tmp.NormativeDocument) TTT) tempnd
+        ///				ON nd.NORMDOCID=tempnd.NORMDOCID
+        ///			WHEN MATCHED AND 
+        ///				(
+        ///					dbo.eq(nd.DOCIMGID,tempnd.DOCIMGID)=0
+        ///					OR dbo.eq(nd.[DOCNAME],tempnd.DOCNAME)=0
+        ///					OR dbo.eq(nd.[DOCDATE],tempnd.DOCDATE)=0
+        ///					OR dbo.eq(nd.[DOCNUM],t [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_fias_NormativeDocument {
+            get {
+                return ResourceManager.GetString("MERGE_fias_NormativeDocument", resourceCulture);
             }
         }
         
@@ -321,21 +419,22 @@ namespace Fias.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (AOID uniqueidentifier)
-        ///MERGE fias.AddressObjects AS o
-        ///  USING
-        ///    (select distinct * from fias_tmp.[Object]) tmpo
-        ///  ON o.AOID=tmpo.AOID
-        ///  WHEN MATCHED AND 
-        ///    (
-        ///      dbo.eq(o.AOGUID,tmpo.AOGUID)=0
-        ///      OR dbo.eq(o.FORMALNAME,tmpo.FORMALNAME)=0
-        ///      OR dbo.eq(o.REGIONCODE,tmpo.REGIONCODE)=0
-        ///      OR dbo.eq(o.AUTOCODE,tmpo.AUTOCODE)=0
-        ///      OR dbo.eq(o.AREACODE,tmpo.AREACODE)=0
-        ///      OR dbo.eq(o.CITYCODE,tmpo.CITYCODE)=0
-        ///      OR dbo.eq(o.CTARCODE,tmpo.CTARCODE)=0
-        ///   [остаток строки не уместился]&quot;;.
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (
+        ///	action nvarchar(50),
+        ///	old_AOID uniqueidentifier NULL,
+        ///	old_AOGUID uniqueidentifier NULL,
+        ///	old_FORMALNAME nvarchar(120) NULL,
+        ///	old_REGIONCODE nvarchar(2) NULL,
+        ///	old_AUTOCODE nvarchar(1) NULL,
+        ///	old_AREACODE nvarchar(3) NULL,
+        ///	old_CITYCODE nvarchar(3) NULL,
+        ///	old_CTARCODE nvarchar(3) NULL,
+        ///	old_PLACECODE nvarchar(3) NULL,
+        ///	old_STREETCODE nvarchar(4) NULL,
+        ///	old_EXTRCODE nvarchar(4) NULL,
+        ///	old_SEXTCODE nvarchar(3) NULL,
+        ///	old_OFFNAME nvarchar(120) NULL,
+        ///	old_POSTALCODE nva [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string MERGE_fias_Object {
             get {
@@ -365,7 +464,7 @@ namespace Fias.Properties {
         ///            ,tmpo.[NAME]         
         ///          )
         ///OUTPUT inserted.OPERSTATID INTO @Upserted(ID);
-        ///delete from fias_tmp.OperationStatus w [остаток строки не уместился]&quot;;.
+        ///delete from fias_tmp.OperationStatus.
         /// </summary>
         internal static string MERGE_fias_OperationStatus {
             get {
@@ -476,6 +575,901 @@ namespace Fias.Properties {
         internal static string MERGE_fias_StructureStatus {
             get {
                 return ResourceManager.GetString("MERGE_fias_StructureStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.ActualStatus AS o
+        ///  USING
+        ///    ##ActualStatus tmpo
+        ///  ON o.ACTSTATID=tmpo.ACTSTATID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///
+        ///  )
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT ([ACTSTATID],[NAME])
+        ///        VALUES
+        ///          (tmpo.[ACTSTATID],tmpo.[NAME])
+        ///OUTPUT inserted.[ACTSTATID] INTO @Upserted(ID);
+        ///delete from ##ActualStatus.
+        /// </summary>
+        internal static string MERGE_GlobalTempActualStatus {
+            get {
+                return ResourceManager.GetString("MERGE_GlobalTempActualStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.ActualStatus AS o
+        ///  USING
+        ///    ##ActualStatus tmpo
+        ///  ON o.ACTSTATID=tmpo.ACTSTATID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///
+        ///  )
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT ([ACTSTATID],[NAME])
+        ///        VALUES
+        ///          (tmpo.[ACTSTATID],tmpo.[NAME])
+        ///OUTPUT inserted.[ACTSTATID] INTO @Upserted(ID);
+        ///delete from ##ActualStatus.
+        /// </summary>
+        internal static string MERGE_GlobalTempActualStatus1 {
+            get {
+                return ResourceManager.GetString("MERGE_GlobalTempActualStatus1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на MERGE fias.AddressObjectType AS o
+        ///  USING
+        ///    ##AddressObjectType tmpo
+        ///  ON o.LEVEL=tmpo.LEVEL and o.KOD_T_ST=tmpo.KOD_T_ST
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.SOCRNAME,tmpo.SOCRNAME)=0
+        ///	  AND 
+        ///	  dbo.eq(o.SCNAME,tmpo.SCNAME)=0
+        ///  )
+        ///  THEN UPDATE SET 
+        ///		SOCRNAME=tmpo.SOCRNAME,
+        ///		KOD_T_ST=tmpo.KOD_T_ST
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///            [LEVEL]
+        ///      ,[SCNAME]
+        ///      ,[SOCRNAME]
+        ///      ,[KOD_T_ST]
+        ///)
+        ///        VALUES
+        ///          (tmpo.[LEVEL],tmpo.[SCNAME],tmpo.[SOCRNAME],tmpo. [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_GlobalTempAddressObjectType {
+            get {
+                return ResourceManager.GetString("MERGE_GlobalTempAddressObjectType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на MERGE fias.AddressObjectType AS o
+        ///  USING
+        ///    ##AddressObjectType tmpo
+        ///  ON o.LEVEL=tmpo.LEVEL and o.KOD_T_ST=tmpo.KOD_T_ST
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.SOCRNAME,tmpo.SOCRNAME)=0
+        ///	  AND 
+        ///	  dbo.eq(o.SCNAME,tmpo.SCNAME)=0
+        ///  )
+        ///  THEN UPDATE SET 
+        ///		SOCRNAME=tmpo.SOCRNAME,
+        ///		KOD_T_ST=tmpo.KOD_T_ST
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///            [LEVEL]
+        ///      ,[SCNAME]
+        ///      ,[SOCRNAME]
+        ///      ,[KOD_T_ST]
+        ///)
+        ///        VALUES
+        ///          (tmpo.[LEVEL],tmpo.[SCNAME],tmpo.[SOCRNAME],tmpo. [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_GlobalTempAddressObjectType1 {
+            get {
+                return ResourceManager.GetString("MERGE_GlobalTempAddressObjectType1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.CenterStatus AS o
+        ///  USING
+        ///    ##CenterStatus tmpo
+        ///  ON o.CENTERSTID=tmpo.CENTERSTID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///
+        ///  )
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///            [CENTERSTID],[NAME]
+        ///)
+        ///        VALUES
+        ///          (
+        ///            tmpo.[CENTERSTID]
+        ///            ,tmpo.[NAME]
+        ///          
+        ///          )
+        ///OUTPUT inserted.[CENTERSTID] INTO @Upserted(ID);
+        ///delete from ##CenterStatus.
+        /// </summary>
+        internal static string MERGE_GlobalTempCenterStatus {
+            get {
+                return ResourceManager.GetString("MERGE_GlobalTempCenterStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.CurrentStatus AS o
+        ///  USING
+        ///    ##CurrentStatus tmpo
+        ///  ON o.CURENTSTID=tmpo.CURENTSTID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///
+        ///  )
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///            CURENTSTID,[NAME]
+        ///)
+        ///        VALUES
+        ///          (
+        ///            tmpo.CURENTSTID
+        ///            ,tmpo.[NAME]
+        ///          
+        ///          )
+        ///OUTPUT inserted.CURENTSTID INTO @Upserted(ID);
+        ///delete from ##CurrentStatus.
+        /// </summary>
+        internal static string MERGE_GlobalTempCurrentStatus {
+            get {
+                return ResourceManager.GetString("MERGE_GlobalTempCurrentStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.EstateStatus AS o
+        ///  USING
+        ///    ##EstateStatus tmpo
+        ///  ON o.ESTSTATID=tmpo.ESTSTATID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///	  OR
+        ///	  dbo.eq(o.SHORTNAME,tmpo.SHORTNAME)=0
+        ///	)
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///				ESTSTATID,NAME,SHORTNAME
+        ///				)
+        ///        VALUES
+        ///          (
+        ///            tmpo.ESTSTATID
+        ///            ,tmpo.[NAME]
+        ///			,tmpo.SHORTNAME         
+        ///          )
+        ///OUTPUT inserted.ESTSTATID INT [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_GlobalTempEstateStatus {
+            get {
+                return ResourceManager.GetString("MERGE_GlobalTempEstateStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на WHILE (EXISTS (SELECT HOUSEID FROM ##House))
+        ///	BEGIN TRY
+        ///	BEGIN
+        ///		BEGIN TRANSACTION
+        ///			DECLARE @upserted TABLE (
+        ///	[HOUSEID] [uniqueidentifier]  NOT NULL 
+        ///) 
+        ///MERGE  fias.House h
+        ///			USING (select distinct * from (select  top 10000 * from ##House) iii)  th
+        ///			ON h.HOUSEID=th.HOUSEID
+        ///			WHEN MATCHED AND 
+        ///			  (
+        ///				dbo.eq(h.POSTALCODE,th.POSTALCODE)=0
+        ///				OR dbo.eq(h.IFNSFL,th.IFNSFL)=0
+        ///				OR dbo.eq(h.TERRIFNSFL,th.TERRIFNSFL)=0
+        ///				OR dbo.eq(h.IFNSUL,th.IFNSUL)=0
+        ///				OR dbo.eq(h.TERRIFNSUL,th.T [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_GlobalTempHouse {
+            get {
+                return ResourceManager.GetString("MERGE_GlobalTempHouse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.HouseStateStatus AS o
+        ///  USING
+        ///    ##HouseStateStatus tmpo
+        ///  ON o.HOUSESTID=tmpo.HOUSESTID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///	)
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///            HOUSESTID,NAME
+        ///)
+        ///        VALUES
+        ///          (
+        ///            tmpo.HOUSESTID
+        ///            ,tmpo.[NAME]         
+        ///          )
+        ///OUTPUT inserted.HOUSESTID INTO @Upserted(ID);
+        ///delete from ##HouseStateStatus.
+        /// </summary>
+        internal static string MERGE_GlobalTempHouseStateStatus {
+            get {
+                return ResourceManager.GetString("MERGE_GlobalTempHouseStateStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на WHILE (EXISTS (SELECT * FROM ##NormativeDocument))
+        ///	BEGIN TRY
+        ///		BEGIN TRANSACTION
+        ///			DECLARE @upserted TABLE (ID uniqueidentifier)
+        ///			MERGE fias.NormativeDocument nd
+        ///				USING (SELECT DISTINCT * FROM (SELECT TOP 10000 * FROM ##NormativeDocument) TTT) tempnd
+        ///				ON nd.NORMDOCID=tempnd.NORMDOCID
+        ///			WHEN MATCHED AND 
+        ///				(
+        ///					dbo.eq(nd.DOCIMGID,tempnd.DOCIMGID)=0
+        ///					OR dbo.eq(nd.[DOCNAME],tempnd.DOCNAME)=0
+        ///					OR dbo.eq(nd.[DOCDATE],tempnd.DOCDATE)=0
+        ///					OR dbo.eq(nd.[DOCNUM],tempnd.DOCNUM)=0 [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_GlobalTempNormativeDocument {
+            get {
+                return ResourceManager.GetString("MERGE_GlobalTempNormativeDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.NormativeDocumentType AS o
+        ///  USING
+        ///    ##NormativeDocumentType tmpo
+        ///  ON o.NDTYPEID=tmpo.NDTYPEID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///	)
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///            NDTYPEID,NAME
+        ///)
+        ///        VALUES
+        ///          (
+        ///            tmpo.NDTYPEID
+        ///            ,tmpo.[NAME]         
+        ///          )
+        ///OUTPUT inserted.NDTYPEID INTO @Upserted(ID);
+        ///delete from ##NormativeDocumentType.
+        /// </summary>
+        internal static string MERGE_GlobalTempNormativeDocumentType {
+            get {
+                return ResourceManager.GetString("MERGE_GlobalTempNormativeDocumentType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (
+        ///	action nvarchar(50),
+        ///	old_AOID uniqueidentifier NOT NULL,
+        ///	old_AOGUID uniqueidentifier NULL,
+        ///	old_FORMALNAME nvarchar(120) NULL,
+        ///	old_REGIONCODE nvarchar(2) NULL,
+        ///	old_AUTOCODE nvarchar(1) NULL,
+        ///	old_AREACODE nvarchar(3) NULL,
+        ///	old_CITYCODE nvarchar(3) NULL,
+        ///	old_CTARCODE nvarchar(3) NULL,
+        ///	old_PLACECODE nvarchar(3) NULL,
+        ///	old_STREETCODE nvarchar(4) NULL,
+        ///	old_EXTRCODE nvarchar(4) NULL,
+        ///	old_SEXTCODE nvarchar(3) NULL,
+        ///	old_OFFNAME nvarchar(120) NULL,
+        ///	old_POSTALCODE [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_GlobalTempObject {
+            get {
+                return ResourceManager.GetString("MERGE_GlobalTempObject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.OperationStatus AS o
+        ///  USING
+        ///    ##OperationStatus tmpo
+        ///  ON o.OPERSTATID=tmpo.OPERSTATID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///	)
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///            OPERSTATID,NAME
+        ///)
+        ///        VALUES
+        ///          (
+        ///            tmpo.OPERSTATID
+        ///            ,tmpo.[NAME]         
+        ///          )
+        ///OUTPUT inserted.OPERSTATID INTO @Upserted(ID);
+        ///delete from ##OperationStatus.
+        /// </summary>
+        internal static string MERGE_GlobalTempOperationStatus {
+            get {
+                return ResourceManager.GetString("MERGE_GlobalTempOperationStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на WHILE (EXISTS (SELECT * FROM ##Room))
+        ///	BEGIN TRY
+        ///		BEGIN TRANSACTION
+        ///		DECLARE @upserted TABLE (ID uniqueidentifier)
+        ///			MERGE fias.Room room
+        ///				USING (SELECT DISTINCT * FROM (SELECT TOP 200000 * FROM ##Room) TTT) temproom
+        ///				ON room.ROOMID=temproom.ROOMID
+        ///			WHEN MATCHED AND 
+        ///				(
+        ///					dbo.eq(room.ROOMGUID,temproom.ROOMGUID)=0
+        ///					OR dbo.eq(room.FLATNUMBER,temproom.FLATNUMBER)=0
+        ///					OR dbo.eq(room.FLATTYPE,temproom.FLATTYPE)=0
+        ///					OR dbo.eq(room.ROOMNUMBER,temproom.ROOMNUMBER)=0
+        ///					OR d [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_GlobalTempRoom {
+            get {
+                return ResourceManager.GetString("MERGE_GlobalTempRoom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.RoomType AS o
+        ///  USING
+        ///    ##RoomType tmpo
+        ///  ON o.RMTYPEID=tmpo.RMTYPEID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///	  OR
+        ///	  dbo.eq(o.SHORTNAME,tmpo.SHORTNAME)=0
+        ///  )
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///            RMTYPEID,NAME,SHORTNAME
+        ///)
+        ///        VALUES
+        ///          (
+        ///            tmpo.RMTYPEID
+        ///            ,tmpo.[NAME]
+        ///			,tmpo.SHORTNAME          
+        ///          )
+        ///OUTPUT inserted.RMTYPEID INTO @Upse [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_GlobalTempRoomType {
+            get {
+                return ResourceManager.GetString("MERGE_GlobalTempRoomType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на WHILE (EXISTS (SELECT * FROM ##Stead))
+        ///	BEGIN TRY
+        ///		BEGIN TRANSACTION
+        ///			DECLARE @upserted TABLE (ID uniqueidentifier)
+        ///			MERGE fias.Stead room
+        ///				USING (SELECT DISTINCT * FROM (SELECT TOP 100000 * FROM ##Stead) TTT) temproom
+        ///				ON room.STEADID=temproom.STEADID
+        ///			WHEN MATCHED AND 
+        ///				(
+        ///					dbo.eq(room.STEADGUID,temproom.STEADGUID)=0
+        ///					OR dbo.eq(room.NUMBER,temproom.NUMBER)=0
+        ///					OR dbo.eq(room.REGIONCODE,temproom.REGIONCODE)=0
+        ///					OR dbo.eq(room.POSTALCODE,temproom.POSTALCODE)=0
+        ///					 [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_GlobalTempStead {
+            get {
+                return ResourceManager.GetString("MERGE_GlobalTempStead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.StructureStatus AS o
+        ///  USING
+        ///    ##StructureStatus tmpo
+        ///  ON o.STRSTATID=tmpo.STRSTATID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///	  OR
+        ///	  dbo.eq(o.SHORTNAME,tmpo.SHORTNAME)=0
+        ///  )
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///            STRSTATID,NAME,SHORTNAME
+        ///)
+        ///        VALUES
+        ///          (
+        ///            tmpo.STRSTATID
+        ///            ,tmpo.[NAME]
+        ///			,tmpo.SHORTNAME          
+        ///          )
+        ///OUTPUT inserted.S [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_GlobalTempStructureStatus {
+            get {
+                return ResourceManager.GetString("MERGE_GlobalTempStructureStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.ActualStatus AS o
+        ///  USING
+        ///    #ActualStatus tmpo
+        ///  ON o.ACTSTATID=tmpo.ACTSTATID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///
+        ///  )
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT ([ACTSTATID],[NAME])
+        ///        VALUES
+        ///          (tmpo.[ACTSTATID],tmpo.[NAME])
+        ///OUTPUT inserted.[ACTSTATID] INTO @Upserted(ID);
+        ///delete from #ActualStatus.
+        /// </summary>
+        internal static string MERGE_LocalTempActualStatus {
+            get {
+                return ResourceManager.GetString("MERGE_LocalTempActualStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на MERGE fias.AddressObjectType AS o
+        ///  USING
+        ///    #AddressObjectType tmpo
+        ///  ON o.LEVEL=tmpo.LEVEL and o.KOD_T_ST=tmpo.KOD_T_ST
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.SOCRNAME,tmpo.SOCRNAME)=0
+        ///	  AND 
+        ///	  dbo.eq(o.SCNAME,tmpo.SCNAME)=0
+        ///  )
+        ///  THEN UPDATE SET 
+        ///		SOCRNAME=tmpo.SOCRNAME,
+        ///		KOD_T_ST=tmpo.KOD_T_ST
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///            [LEVEL]
+        ///      ,[SCNAME]
+        ///      ,[SOCRNAME]
+        ///      ,[KOD_T_ST]
+        ///)
+        ///        VALUES
+        ///          (tmpo.[LEVEL],tmpo.[SCNAME],tmpo.[SOCRNAME],tmpo.[ [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_LocalTempAddressObjectType {
+            get {
+                return ResourceManager.GetString("MERGE_LocalTempAddressObjectType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.CenterStatus AS o
+        ///  USING
+        ///    #CenterStatus tmpo
+        ///  ON o.CENTERSTID=tmpo.CENTERSTID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///  )
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///            [CENTERSTID],[NAME]
+        ///)
+        ///        VALUES
+        ///          (
+        ///            tmpo.[CENTERSTID]
+        ///            ,tmpo.[NAME]
+        ///          
+        ///          )
+        ///OUTPUT inserted.[CENTERSTID] INTO @Upserted(ID);
+        ///delete from #CenterStatus.
+        /// </summary>
+        internal static string MERGE_LocalTempCenterStatus {
+            get {
+                return ResourceManager.GetString("MERGE_LocalTempCenterStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.CurrentStatus AS o
+        ///  USING
+        ///    #CurrentStatus tmpo
+        ///  ON o.CURENTSTID=tmpo.CURENTSTID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///  )
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///            CURENTSTID,[NAME]
+        ///)
+        ///        VALUES
+        ///          (
+        ///            tmpo.CURENTSTID
+        ///            ,tmpo.[NAME]
+        ///          
+        ///          )
+        ///OUTPUT inserted.CURENTSTID INTO @Upserted(ID);
+        ///delete from #CurrentStatus.
+        /// </summary>
+        internal static string MERGE_LocalTempCurrentStatus {
+            get {
+                return ResourceManager.GetString("MERGE_LocalTempCurrentStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.EstateStatus AS o
+        ///  USING
+        ///    #EstateStatus tmpo
+        ///  ON o.ESTSTATID=tmpo.ESTSTATID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///	  OR
+        ///	  dbo.eq(o.SHORTNAME,tmpo.SHORTNAME)=0
+        ///	)
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///				ESTSTATID,NAME,SHORTNAME
+        ///				)
+        ///        VALUES
+        ///          (
+        ///            tmpo.ESTSTATID
+        ///            ,tmpo.[NAME]
+        ///			,tmpo.SHORTNAME         
+        ///          )
+        ///OUTPUT inserted.ESTSTATID INTO [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_LocalTempEstateStatus {
+            get {
+                return ResourceManager.GetString("MERGE_LocalTempEstateStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на WHILE (EXISTS (SELECT HOUSEID FROM #House))
+        ///	BEGIN TRY
+        ///	BEGIN
+        ///		BEGIN TRANSACTION
+        ///			DECLARE @upserted TABLE (
+        ///	[HOUSEID] [uniqueidentifier]  NOT NULL 
+        ///) 
+        ///MERGE  fias.House h
+        ///			USING (select distinct * from (select  top 10000 * from #House) iii)  th
+        ///			ON h.HOUSEID=th.HOUSEID
+        ///			WHEN MATCHED AND 
+        ///			  (
+        ///				dbo.eq(h.POSTALCODE,th.POSTALCODE)=0
+        ///				OR dbo.eq(h.IFNSFL,th.IFNSFL)=0
+        ///				OR dbo.eq(h.TERRIFNSFL,th.TERRIFNSFL)=0
+        ///				OR dbo.eq(h.IFNSUL,th.IFNSUL)=0
+        ///				OR dbo.eq(h.TERRIFNSUL,th.TER [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_LocalTempHouse {
+            get {
+                return ResourceManager.GetString("MERGE_LocalTempHouse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.HouseStateStatus AS o
+        ///  USING
+        ///    #HouseStateStatus tmpo
+        ///  ON o.HOUSESTID=tmpo.HOUSESTID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///	)
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///            HOUSESTID,NAME
+        ///)
+        ///        VALUES
+        ///          (
+        ///            tmpo.HOUSESTID
+        ///            ,tmpo.[NAME]         
+        ///          )
+        ///OUTPUT inserted.HOUSESTID INTO @Upserted(ID);
+        ///delete from #HouseStateStatus.
+        /// </summary>
+        internal static string MERGE_LocalTempHouseStateStatus {
+            get {
+                return ResourceManager.GetString("MERGE_LocalTempHouseStateStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на WHILE (EXISTS (SELECT * FROM #NormativeDocument))
+        ///	BEGIN TRY
+        ///		BEGIN TRANSACTION
+        ///			DECLARE @upserted TABLE (ID uniqueidentifier)
+        ///			MERGE fias.NormativeDocument nd
+        ///				USING (SELECT DISTINCT * FROM (SELECT TOP 10000 * FROM #NormativeDocument) TTT) tempnd
+        ///				ON nd.NORMDOCID=tempnd.NORMDOCID
+        ///			WHEN MATCHED AND 
+        ///				(
+        ///					dbo.eq(nd.DOCIMGID,tempnd.DOCIMGID)=0
+        ///					OR dbo.eq(nd.[DOCNAME],tempnd.DOCNAME)=0
+        ///					OR dbo.eq(nd.[DOCDATE],tempnd.DOCDATE)=0
+        ///					OR dbo.eq(nd.[DOCNUM],tempnd.DOCNUM)=0
+        /// [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_LocalTempNormativeDocument {
+            get {
+                return ResourceManager.GetString("MERGE_LocalTempNormativeDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.NormativeDocumentType AS o
+        ///  USING
+        ///    #NormativeDocumentType tmpo
+        ///  ON o.NDTYPEID=tmpo.NDTYPEID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///	)
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///            NDTYPEID,NAME
+        ///)
+        ///        VALUES
+        ///          (
+        ///            tmpo.NDTYPEID
+        ///            ,tmpo.[NAME]         
+        ///          )
+        ///OUTPUT inserted.NDTYPEID INTO @Upserted(ID);
+        ///delete from #NormativeDocumentType.
+        /// </summary>
+        internal static string MERGE_LocalTempNormativeDocumentType {
+            get {
+                return ResourceManager.GetString("MERGE_LocalTempNormativeDocumentType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (
+        ///	action nvarchar(50),
+        ///	old_AOID uniqueidentifier NOT NULL,
+        ///	old_AOGUID uniqueidentifier NULL,
+        ///	old_FORMALNAME nvarchar(120) NULL,
+        ///	old_REGIONCODE nvarchar(2) NULL,
+        ///	old_AUTOCODE nvarchar(1) NULL,
+        ///	old_AREACODE nvarchar(3) NULL,
+        ///	old_CITYCODE nvarchar(3) NULL,
+        ///	old_CTARCODE nvarchar(3) NULL,
+        ///	old_PLACECODE nvarchar(3) NULL,
+        ///	old_STREETCODE nvarchar(4) NULL,
+        ///	old_EXTRCODE nvarchar(4) NULL,
+        ///	old_SEXTCODE nvarchar(3) NULL,
+        ///	old_OFFNAME nvarchar(120) NULL,
+        ///	old_POSTALCODE [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_LocalTempObject {
+            get {
+                return ResourceManager.GetString("MERGE_LocalTempObject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.OperationStatus AS o
+        ///  USING
+        ///    #OperationStatus tmpo
+        ///  ON o.OPERSTATID=tmpo.OPERSTATID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///	)
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///            OPERSTATID,NAME
+        ///)
+        ///        VALUES
+        ///          (
+        ///            tmpo.OPERSTATID
+        ///            ,tmpo.[NAME]         
+        ///          )
+        ///OUTPUT inserted.OPERSTATID INTO @Upserted(ID);
+        ///delete from #OperationStatus.
+        /// </summary>
+        internal static string MERGE_LocalTempOperationStatus {
+            get {
+                return ResourceManager.GetString("MERGE_LocalTempOperationStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на WHILE (EXISTS (SELECT * FROM #Room))
+        ///	BEGIN TRY
+        ///		BEGIN TRANSACTION
+        ///		DECLARE @upserted TABLE (ID uniqueidentifier)
+        ///			MERGE fias.Room room
+        ///				USING (SELECT DISTINCT * FROM (SELECT TOP 200000 * FROM #Room) TTT) temproom
+        ///				ON room.ROOMID=temproom.ROOMID
+        ///			WHEN MATCHED AND 
+        ///				(
+        ///					dbo.eq(room.ROOMGUID,temproom.ROOMGUID)=0
+        ///					OR dbo.eq(room.FLATNUMBER,temproom.FLATNUMBER)=0
+        ///					OR dbo.eq(room.FLATTYPE,temproom.FLATTYPE)=0
+        ///					OR dbo.eq(room.ROOMNUMBER,temproom.ROOMNUMBER)=0
+        ///					OR dbo [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_LocalTempRoom {
+            get {
+                return ResourceManager.GetString("MERGE_LocalTempRoom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.RoomType AS o
+        ///  USING
+        ///    #RoomType tmpo
+        ///  ON o.RMTYPEID=tmpo.RMTYPEID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///	  OR
+        ///	  dbo.eq(o.SHORTNAME,tmpo.SHORTNAME)=0
+        ///  )
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///            RMTYPEID,NAME,SHORTNAME
+        ///)
+        ///        VALUES
+        ///          (
+        ///            tmpo.RMTYPEID
+        ///            ,tmpo.[NAME]
+        ///			,tmpo.SHORTNAME          
+        ///          )
+        ///OUTPUT inserted.RMTYPEID INTO @Upser [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_LocalTempRoomType {
+            get {
+                return ResourceManager.GetString("MERGE_LocalTempRoomType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на WHILE (EXISTS (SELECT * FROM #Stead))
+        ///	BEGIN TRY
+        ///		BEGIN TRANSACTION
+        ///			DECLARE @upserted TABLE (ID uniqueidentifier)
+        ///			MERGE fias.Stead room
+        ///				USING (SELECT DISTINCT * FROM (SELECT TOP 100000 * FROM #Stead) TTT) temproom
+        ///				ON room.STEADID=temproom.STEADID
+        ///			WHEN MATCHED AND 
+        ///				(
+        ///					dbo.eq(room.STEADGUID,temproom.STEADGUID)=0
+        ///					OR dbo.eq(room.NUMBER,temproom.NUMBER)=0
+        ///					OR dbo.eq(room.REGIONCODE,temproom.REGIONCODE)=0
+        ///					OR dbo.eq(room.POSTALCODE,temproom.POSTALCODE)=0
+        ///					OR [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_LocalTempStead {
+            get {
+                return ResourceManager.GetString("MERGE_LocalTempStead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (ID int)
+        ///MERGE fias.StructureStatus AS o
+        ///  USING
+        ///    #StructureStatus tmpo
+        ///  ON o.STRSTATID=tmpo.STRSTATID
+        ///  WHEN MATCHED AND 
+        ///    (
+        ///      dbo.eq(o.NAME,tmpo.NAME)=0
+        ///	  OR
+        ///	  dbo.eq(o.SHORTNAME,tmpo.SHORTNAME)=0
+        ///  )
+        ///  THEN UPDATE SET 
+        ///		NAME=tmpo.NAME
+        ///  WHEN NOT MATCHED
+        ///  THEN  INSERT (
+        ///            STRSTATID,NAME,SHORTNAME
+        ///)
+        ///        VALUES
+        ///          (
+        ///            tmpo.STRSTATID
+        ///            ,tmpo.[NAME]
+        ///			,tmpo.SHORTNAME          
+        ///          )
+        ///OUTPUT inserted.ST [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MERGE_LocalTempStructureStatus {
+            get {
+                return ResourceManager.GetString("MERGE_LocalTempStructureStatus", resourceCulture);
             }
         }
     }

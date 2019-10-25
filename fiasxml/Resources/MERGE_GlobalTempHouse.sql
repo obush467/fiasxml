@@ -1,12 +1,12 @@
-﻿			DECLARE @upserted TABLE (
-
-				[HOUSEID] [uniqueidentifier] NOT NULL,
-				INDEX IX3 NONCLUSTERED(HOUSEID)	) 
-WHILE (EXISTS (SELECT HOUSEID FROM fias_tmp.House))
+﻿WHILE (EXISTS (SELECT HOUSEID FROM ##House))
 	BEGIN TRY
+	BEGIN
 		BEGIN TRANSACTION
-			MERGE TOP (100000) fias.House h
-			USING fias_tmp.House th
+			DECLARE @upserted TABLE (
+	[HOUSEID] [uniqueidentifier]  NOT NULL 
+) 
+MERGE  fias.House h
+			USING (select distinct * from (select  top 10000 * from ##House) iii)  th
 			ON h.HOUSEID=th.HOUSEID
 			WHEN MATCHED AND 
 			  (
@@ -105,9 +105,11 @@ WHILE (EXISTS (SELECT HOUSEID FROM fias_tmp.House))
 							,th.CADNUM
 							,th.DIVTYPE)
 			OUTPUT inserted.HOUSEID INTO @Upserted(HOUSEID);
-			delete from fias_tmp.House where HOUSEID in (select HOUSEID from @upserted)
+			delete from ##House where HOUSEID in (select HOUSEID from @upserted)			
 		COMMIT TRANSACTION
+		END
 	END TRY
 	BEGIN CATCH
+	PRINT N'Ошибка'
 		ROLLBACK TRANSACTION
 	END CATCH

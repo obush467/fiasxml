@@ -19,4 +19,4 @@ MERGE fias.OperationStatus AS o
             ,tmpo.[NAME]         
           )
 OUTPUT inserted.OPERSTATID INTO @Upserted(ID);
-delete from fias_tmp.OperationStatus where OPERSTATID in (select ID from @upserted)
+delete from fias_tmp.OperationStatus

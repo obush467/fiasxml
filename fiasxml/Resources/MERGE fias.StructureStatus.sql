@@ -22,4 +22,4 @@ MERGE fias.StructureStatus AS o
 			,tmpo.SHORTNAME          
           )
 OUTPUT inserted.STRSTATID INTO @Upserted(ID);
-delete from fias_tmp.StructureStatus where STRSTATID in (select ID from @upserted)
+delete from fias_tmp.StructureStatus

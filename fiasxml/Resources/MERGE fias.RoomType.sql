@@ -22,4 +22,4 @@ MERGE fias.RoomType AS o
 			,tmpo.SHORTNAME          
           )
 OUTPUT inserted.RMTYPEID INTO @Upserted(ID);
-delete from fias_tmp.RoomType where RMTYPEID in (select ID from @upserted)
+delete from fias_tmp.RoomType

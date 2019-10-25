@@ -1,12 +1,11 @@
 DECLARE @upserted TABLE (ID int)
 MERGE fias.CurrentStatus AS o
   USING
-    fias_tmp.CurrentStatus tmpo
+    #CurrentStatus tmpo
   ON o.CURENTSTID=tmpo.CURENTSTID
   WHEN MATCHED AND 
     (
       dbo.eq(o.NAME,tmpo.NAME)=0
-
   )
   THEN UPDATE SET 
 		NAME=tmpo.NAME
@@ -21,4 +20,4 @@ MERGE fias.CurrentStatus AS o
           
           )
 OUTPUT inserted.CURENTSTID INTO @Upserted(ID);
-delete from fias_tmp.CurrentStatus
+delete from #CurrentStatus

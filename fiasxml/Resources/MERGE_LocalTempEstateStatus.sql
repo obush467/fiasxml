@@ -1,7 +1,7 @@
 DECLARE @upserted TABLE (ID int)
 MERGE fias.EstateStatus AS o
   USING
-    fias_tmp.EstateStatus tmpo
+    #EstateStatus tmpo
   ON o.ESTSTATID=tmpo.ESTSTATID
   WHEN MATCHED AND 
     (
@@ -22,4 +22,4 @@ MERGE fias.EstateStatus AS o
 			,tmpo.SHORTNAME         
           )
 OUTPUT inserted.ESTSTATID INTO @Upserted(ID);
-delete from fias_tmp.EstateStatus
+delete from #EstateStatus

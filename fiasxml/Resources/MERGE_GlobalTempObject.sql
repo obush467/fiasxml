@@ -80,12 +80,12 @@
 	new_DIVTYPE int NULL,
 	new_PLANCODE nvarchar(15) NULL
 )
-WHILE (EXISTS (SELECT * FROM fias_tmp.Object))
+WHILE (EXISTS (SELECT * FROM ##Object))
 	BEGIN TRY
 		BEGIN TRANSACTION
 			MERGE fias.AddressObjects AS o
 			  USING
-				(select distinct * from fias_tmp.[Object]) tmpo
+				(select distinct * from ##Object) tmpo
 			  ON o.AOID=tmpo.AOID
 			  WHEN MATCHED AND 
 				(
@@ -347,7 +347,7 @@ WHILE (EXISTS (SELECT * FROM fias_tmp.Object))
 			 and nao.AOID is null
 			 and [dbo].[wordCount](new_FORMALNAME)=1
 
-			delete from fias_tmp.[Object]
+			delete from ##Object
 		COMMIT TRANSACTION
 	END TRY
 	BEGIN CATCH

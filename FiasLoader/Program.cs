@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,24 +14,35 @@ namespace FiasLoader
     {
 
 
-            // [STAThread]
-            public static string ConnectionString = "Data Source=BUSHMAKIN;Initial Catalog=UNS;Integrated Security=True;Connection Timeout=1000000000";
-            public static string DBF_Directory = "C:\\Temp1";
-            public static string XML_Directory = "C:\\Users\\PEG1\\Downloads\\Compressed\\fias_dbf";
-            public static string schemaname = "fias_tmp";
-            //public static FiasOperatorXML fiasXMLDataSetConverter = new FiasOperatorXML(new DirectoryInfo(XML_Directory), connection, schemaname);
-            private static readonly FiasOperatorDBF fiasDBFDataSetConverter = new FiasOperatorDBF(new DirectoryInfo(DBF_Directory), ConnectionString, schemaname);
-        
+        // [STAThread]
+
+        public static string DBF_Directory = "C:\\Temp";
+        //public static string XML_Directory = "C:\\Users\\PEG1\\Downloads\\Compressed\\fias_dbf";
+        public static string schemaname = "fias_tmp";
+        //public static FiasOperatorXML fiasXMLDataSetConverter = new FiasOperatorXML(new DirectoryInfo(XML_Directory), connection, schemaname);
+
+
         static void Main(string[] args)
+        {
+            try
             {
-                try
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder()
                 {
-                    fiasDBFDataSetConverter.DownloadFromSite(false);
-                    fiasDBFDataSetConverter.Load();
-                    fiasDBFDataSetConverter.MergeDB();
-                }
-                finally { }                
+                    DataSource = "BUSHMAKIN",
+                    InitialCatalog = "UNS",
+                    IntegratedSecurity = true,
+                    ConnectTimeout = 0,
+                    NetworkLibrary = "dbmssocn"
+                };
+                var serverTableType = ServerTableType.GlobalTemp;
+                FiasOperatorDBF fiasDBFDataSetConverter = new FiasOperatorDBF(new DirectoryInfo(DBF_Directory), builder.ConnectionString, schemaname);
+                //var DownloadTask = Task.Factory.StartNew(() => fiasDBFDataSetConverter.DownloadFromSite(true));
+                var LoadTask = Task.Factory.StartNew(() => fiasDBFDataSetConverter.BulkLoad(serverTableType));/*DownloadTask*/
+                var MergeTask = LoadTask.ContinueWith((a) => fiasDBFDataSetConverter.MergeDB(serverTableType));
+                MergeTask.Wait();
             }
+            finally { }
         }
     }
-    
+}
+

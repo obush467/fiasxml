@@ -21,5 +21,4 @@ MERGE fias.CenterStatus AS o
           
           )
 OUTPUT inserted.[CENTERSTID] INTO @Upserted(ID);
-delete from fias_tmp.CenterStatus where 
-	   [CENTERSTID] in (select ID from @upserted)
+delete from fias_tmp.CenterStatus

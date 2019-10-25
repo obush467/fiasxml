@@ -1,9 +1,9 @@
-﻿WHILE (EXISTS (SELECT * FROM fias_tmp.Stead))
+﻿WHILE (EXISTS (SELECT * FROM #Stead))
 	BEGIN TRY
 		BEGIN TRANSACTION
 			DECLARE @upserted TABLE (ID uniqueidentifier)
 			MERGE fias.Stead room
-				USING (SELECT DISTINCT * FROM (SELECT TOP 100000 * FROM fias_tmp.Stead) TTT) temproom
+				USING (SELECT DISTINCT * FROM (SELECT TOP 100000 * FROM #Stead) TTT) temproom
 				ON room.STEADID=temproom.STEADID
 			WHEN MATCHED AND 
 				(
@@ -106,7 +106,7 @@
 							temproom.COUNTER
 							)
 			OUTPUT inserted.STEADID INTO @Upserted(ID);
-			DELETE FROM fias_tmp.Stead  WHERE STEADID IN (SELECT ID FROM  @Upserted)
+			DELETE FROM #Stead WHERE STEADID IN (SELECT ID FROM  @Upserted)
 		COMMIT TRANSACTION
 	END TRY
 	BEGIN CATCH

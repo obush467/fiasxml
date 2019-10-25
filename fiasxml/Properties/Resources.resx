@@ -121,6 +121,15 @@
   <data name="ClearTables_fias_tmp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ClearTables_fias_tmp.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
+  <data name="CreateTempFiasTables" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CreateTempFiasTables.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="DropTempFiasTables" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DropTempFiasTables.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_address_Cached" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MERGE address.Cached.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
   <data name="MERGE_fias_ActualStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MERGE fias.ActualStatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
@@ -142,6 +151,9 @@
   <data name="MERGE_fias_HouseStateStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MERGE fias.HouseStateStatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
+  <data name="MERGE_fias_NormativeDocument" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MERGE fias.NormativeDocument.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="MERGE_fias_NormativeDocumentType" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MERGE fias.NormativeDocumentType.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
@@ -162,5 +174,101 @@
   </data>
   <data name="MERGE_fias_StructureStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MERGE fias.StructureStatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_GlobalTempActualStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_globaltempactualstatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_GlobalTempActualStatus1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_globaltempactualstatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_GlobalTempAddressObjectType" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_globaltempaddressobjecttype.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="MERGE_GlobalTempAddressObjectType1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_globaltempaddressobjecttype.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="MERGE_GlobalTempCenterStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_globaltempcenterstatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_GlobalTempCurrentStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_globaltempcurrentstatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_GlobalTempEstateStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_globaltempestatestatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_GlobalTempHouse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_globaltemphouse.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MERGE_GlobalTempHouseStateStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_globaltemphousestatestatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_GlobalTempNormativeDocument" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_globaltempnormativedocument.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MERGE_GlobalTempNormativeDocumentType" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_globaltempnormativedocumenttype.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_GlobalTempObject" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_globaltempobject.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MERGE_GlobalTempOperationStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_globaltempoperationstatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_GlobalTempRoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_globaltemproom.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MERGE_GlobalTempRoomType" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_globaltemproomtype.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_GlobalTempStead" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_globaltempstead.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MERGE_GlobalTempStructureStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_globaltempstructurestatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_LocalTempActualStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_localtempactualstatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_LocalTempAddressObjectType" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_localtempaddressobjecttype.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="MERGE_LocalTempCenterStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_localtempcenterstatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_LocalTempCurrentStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_localtempcurrentstatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_LocalTempEstateStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_localtempestatestatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_LocalTempHouse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_localtemphouse.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MERGE_LocalTempHouseStateStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_localtemphousestatestatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_LocalTempNormativeDocument" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_localtempnormativedocument.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MERGE_LocalTempNormativeDocumentType" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_localtempnormativedocumenttype.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_LocalTempObject" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_localtempobject.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MERGE_LocalTempOperationStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_localtempoperationstatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_LocalTempRoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_localtemproom.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MERGE_LocalTempRoomType" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_localtemproomtype.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="MERGE_LocalTempStead" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_localtempstead.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MERGE_LocalTempStructureStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\merge_localtempstructurestatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
 </root>

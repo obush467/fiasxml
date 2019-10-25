@@ -1,9 +1,9 @@
-﻿WHILE (EXISTS (SELECT * FROM fias_tmp.Room))
+﻿WHILE (EXISTS (SELECT * FROM ##Room))
 	BEGIN TRY
 		BEGIN TRANSACTION
 		DECLARE @upserted TABLE (ID uniqueidentifier)
 			MERGE fias.Room room
-				USING (SELECT DISTINCT * FROM (SELECT TOP 200000 * FROM fias_tmp.Room) TTT) temproom
+				USING (SELECT DISTINCT * FROM (SELECT TOP 200000 * FROM ##Room) TTT) temproom
 				ON room.ROOMID=temproom.ROOMID
 			WHEN MATCHED AND 
 				(
@@ -88,7 +88,7 @@
 						temproom.NORMDOC,
 						temproom.CADNUM)
 			OUTPUT inserted.ROOMID INTO @Upserted(ID);
-			DELETE FROM fias_tmp.Room  WHERE ROOMID IN (SELECT ID FROM  @Upserted)
+			DELETE FROM ##Room WHERE ROOMID IN (SELECT ID FROM  @Upserted)
 		COMMIT TRANSACTION
 	END TRY
 	BEGIN CATCH

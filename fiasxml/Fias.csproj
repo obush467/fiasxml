@@ -188,7 +188,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="SQL\" />
+    <None Include="Resources\CreateLocalTempFiasTables.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ClearTables.sql" />
@@ -237,6 +237,108 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ClearTables_fias_tmp.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DropTempFiasTables.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CreateTempFiasTables.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE fias.NormativeDocument.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE address.Cached.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_GlobalTempAddressObjectType.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_GlobalTempActualStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_GlobalTempStructureStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_GlobalTempOperationStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_GlobalTempNormativeDocumentType.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_GlobalTempHouseStateStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_GlobalTempCurrentStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_GlobalTempCenterStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_GlobalTempHouse.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_GlobalTempNormativeDocument.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_GlobalTempStead.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_GlobalTempObject.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_GlobalTempRoom.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_GlobalTempRoomType.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_GlobalTempEstateStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_LocalTempStructureStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_LocalTempStead.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_LocalTempRoomType.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_LocalTempRoom.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_LocalTempOperationStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_LocalTempObject.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_LocalTempNormativeDocumentType.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_LocalTempNormativeDocument.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_LocalTempHouseStateStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_LocalTempHouse.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_LocalTempEstateStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_LocalTempCurrentStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_LocalTempCenterStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_LocalTempAddressObjectType.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MERGE_LocalTempActualStatus.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SevenZipExtractor.1.0.13\build\SevenZipExtractor.targets" Condition="Exists('..\packages\SevenZipExtractor.1.0.13\build\SevenZipExtractor.targets')" />

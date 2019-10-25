@@ -42,7 +42,7 @@ namespace Fias.Loaders
         }
         public async Task<bool> Load(bool fullBase,DirectoryInfo destinationDir)
         {
-            string tempPath = Path.Combine(destinationDir.FullName, "fias_dbf_"+((fullBase) ? "delta_":"") + DateTime.Now.ToShortDateString() + ".rar");
+            string tempPath = Path.Combine(destinationDir.FullName, "fias_dbf_"+((fullBase) ? "":"delta_") + DateTime.Now.ToShortDateString() + ".rar");
             try
             {
                 webClient.DownloadFile((fullBase ? FullUri : DeltaUri), tempPath);
@@ -57,7 +57,10 @@ namespace Fias.Loaders
                     return true;
             }
             catch (Exception e)
-            { return false; }
+            {
+                Logger.Logger.Error(e.Message);
+                return false; 
+            }
         }
     }
 }

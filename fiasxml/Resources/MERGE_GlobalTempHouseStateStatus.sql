@@ -1,7 +1,7 @@
 DECLARE @upserted TABLE (ID int)
 MERGE fias.HouseStateStatus AS o
   USING
-    fias_tmp.HouseStateStatus tmpo
+    ##HouseStateStatus tmpo
   ON o.HOUSESTID=tmpo.HOUSESTID
   WHEN MATCHED AND 
     (
@@ -19,4 +19,4 @@ MERGE fias.HouseStateStatus AS o
             ,tmpo.[NAME]         
           )
 OUTPUT inserted.HOUSESTID INTO @Upserted(ID);
-delete from fias_tmp.HouseStateStatus 
+delete from ##HouseStateStatus
