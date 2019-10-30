@@ -83,6 +83,33 @@ namespace Fias.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на CREATE PROCEDURE [fias].[merge_House]	
+        ///(
+        ///	@POSTALCODE varchar(6) NULL,
+        ///	@IFNSFL varchar(4) NULL,
+        ///	@TERRIFNSFL varchar(4) NULL,
+        ///	@IFNSUL varchar(4) NULL,
+        ///	@TERRIFNSUL varchar(4) NULL,
+        ///	@OKATO varchar(11) NULL,
+        ///	@OKTMO varchar(11) NULL,
+        ///	@UPDATEDATE smalldatetime NULL,
+        ///	@HOUSENUM varchar(20) NULL,
+        ///	@ESTSTATUS int NULL,
+        ///	@BUILDNUM varchar(10) NULL,
+        ///	@STRUCNUM varchar(10) NULL,
+        ///	@STRSTATUS int NULL,
+        ///	@HOUSEID varchar(36) NULL,
+        ///	@HOUSEGUID varchar(36) NULL,
+        ///	@AOGUID varchar(36) NULL,
+        ///	@STARTDAT [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string create_fias_merge_House1 {
+            get {
+                return ResourceManager.GetString("create_fias_merge_House1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на CREATE TABLE ##ActualStatus(
         ///	ACTSTATID int NOT NULL,
         ///	NAME nvarchar(100) NOT NULL
@@ -895,7 +922,7 @@ namespace Fias.Properties {
         /// <summary>
         ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (
         ///	action nvarchar(50),
-        ///	old_AOID uniqueidentifier NOT NULL,
+        ///	old_AOID uniqueidentifier NULL,
         ///	old_AOGUID uniqueidentifier NULL,
         ///	old_FORMALNAME nvarchar(120) NULL,
         ///	old_REGIONCODE nvarchar(2) NULL,
@@ -908,7 +935,7 @@ namespace Fias.Properties {
         ///	old_EXTRCODE nvarchar(4) NULL,
         ///	old_SEXTCODE nvarchar(3) NULL,
         ///	old_OFFNAME nvarchar(120) NULL,
-        ///	old_POSTALCODE [остаток строки не уместился]&quot;;.
+        ///	old_POSTALCODE nva [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string MERGE_GlobalTempObject {
             get {
@@ -1314,7 +1341,7 @@ namespace Fias.Properties {
         /// <summary>
         ///   Ищет локализованную строку, похожую на DECLARE @upserted TABLE (
         ///	action nvarchar(50),
-        ///	old_AOID uniqueidentifier NOT NULL,
+        ///	old_AOID uniqueidentifier NULL,
         ///	old_AOGUID uniqueidentifier NULL,
         ///	old_FORMALNAME nvarchar(120) NULL,
         ///	old_REGIONCODE nvarchar(2) NULL,
@@ -1327,7 +1354,7 @@ namespace Fias.Properties {
         ///	old_EXTRCODE nvarchar(4) NULL,
         ///	old_SEXTCODE nvarchar(3) NULL,
         ///	old_OFFNAME nvarchar(120) NULL,
-        ///	old_POSTALCODE [остаток строки не уместился]&quot;;.
+        ///	old_POSTALCODE nva [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string MERGE_LocalTempObject {
             get {

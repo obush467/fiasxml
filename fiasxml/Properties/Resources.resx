@@ -124,6 +124,9 @@
   <data name="CreateTempFiasTables" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CreateTempFiasTables.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
   </data>
+  <data name="create_fias_merge_House1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\create_fias_merge_house.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
   <data name="DropTempFiasTables" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DropTempFiasTables.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>

@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Fias.Loaders;
 using Fias.Operators;
@@ -26,6 +27,7 @@ namespace FiasLoader
         {
             try
             {
+                var ct=new CancellationTokenSource();
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder()
                 {
                     DataSource = "BUSHMAKIN",
@@ -37,9 +39,16 @@ namespace FiasLoader
                 var serverTableType = ServerTableType.GlobalTemp;
                 FiasOperatorDBF fiasDBFDataSetConverter = new FiasOperatorDBF(new DirectoryInfo(DBF_Directory), builder.ConnectionString, schemaname);
                 //var DownloadTask = Task.Factory.StartNew(() => fiasDBFDataSetConverter.DownloadFromSite(true));
-                var LoadTask = Task.Factory.StartNew(() => fiasDBFDataSetConverter.BulkLoad(serverTableType));/*DownloadTask*/
-                var MergeTask = LoadTask.ContinueWith((a) => fiasDBFDataSetConverter.MergeDB(serverTableType));
-                MergeTask.Wait();
+                //var LoadTask = Task.Factory.StartNew(() => fiasDBFDataSetConverter.BulkLoad(serverTableType));/*DownloadTask*/
+                var LoadTask = Task.Factory.StartNew(a => fiasDBFDataSetConverter.SPLoad(),ct.Token);
+                /*var MergeTask = LoadTask.ContinueWith(a => 
+                    { 
+                        if (a.IsCompleted) 
+                        {   
+                            fiasDBFDataSetConverter.MergeDB(serverTableType); 
+                        }
+                    });*/
+                LoadTask.Wait();
             }
             finally { }
         }

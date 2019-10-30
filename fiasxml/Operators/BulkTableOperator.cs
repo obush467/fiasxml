@@ -9,12 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace fias.SQL.DataSets
+namespace fias.Operators
 {
-    public class BulkTableListItem
+    public class BulkTableOperator:DBFFileOperator
     {
         public string TableName { get; set; }
-
         public string DestinationTableName
         {
             get
@@ -39,18 +38,14 @@ namespace fias.SQL.DataSets
             }
         }
         public string TableSchema { get; set; }
-        public FileInfo File { get; set; }
-        public SqlConnection Connection { get; set; }
         public ServerTableType ServerTableType { get; set; }
-        public BulkTableListItem(string tableName, string tableSchema, FileInfo file,ServerTableType serverTableType =ServerTableType.Schema,SqlConnection connection=null)
+        public BulkTableOperator(string tableName, string tableSchema, FileInfo file, ServerTableType serverTableType = ServerTableType.Schema, SqlConnection connection = null):base(file,connection)
         {
             TableName = tableName;
             TableSchema = tableSchema;
-            File = file;
             ServerTableType = serverTableType;
-            Connection = connection;
         }
-        public void Load_DBFToDb()
+        public override void Load_DBFToDb()
         {
             using (SqlTransaction TRA = Connection.BeginTransaction(("Bulk" + TableName)))
             {
@@ -64,7 +59,6 @@ namespace fias.SQL.DataSets
                     var errors = new List<object>();
                     using (NDbfReader.Table dbfTable = NDbfReader.Table.Open(File.Open(FileMode.Open)))
                     {
-                        List<DataRow> rows = new List<DataRow>();
                         DBFDataReader dbfReader = new DBFDataReader(dbfTable, Encoding.GetEncoding(866));
                         foreach (var c in dbfTable.Columns)
                             sqlBulkCopy.ColumnMappings.Add(c.Name, c.Name);
@@ -85,6 +79,8 @@ namespace fias.SQL.DataSets
             }
 
         }
-    }
-}
 
+
+    }
+
+}

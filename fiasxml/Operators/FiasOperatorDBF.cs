@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.Text;
 using System.Diagnostics;
-using fias.SQL.DataSets;
 using Fias.Loaders;
 using Logger;
 using System.Reflection;
+using fias.Operators;
 
 namespace Fias.Operators
 {
@@ -21,9 +21,22 @@ namespace Fias.Operators
         ConnectionTemp
     }
 
+    public class DBFFilePattern
+    {
+        public string Pattern { get; set; }
+        public string TableName { get; set; }
+        public Type SPOperator { get; set; }
+    }
+
     public class FiasOperatorDBF : FiasOperator
     {
         #region SqlCommands
+        public SqlCommand spMerge_Stead { get; set; } = new SqlCommand()
+        {
+            CommandType = CommandType.StoredProcedure,
+            CommandText = "fias.merge_Stead"
+        };
+
         public SqlCommand ClearTables { get; set; } = new SqlCommand()
         {
             CommandType = CommandType.Text,
@@ -49,34 +62,34 @@ namespace Fias.Operators
             CommandType = CommandType.Text,
             CommandText = Properties.Resources.MERGE_fias_CurrentStatus.ToString()
         };
-       public SqlCommand MERGE_fias_EstateStatus { get; set; } = new SqlCommand()
+        public SqlCommand MERGE_fias_EstateStatus { get; set; } = new SqlCommand()
         {
             CommandType = CommandType.Text,
             CommandText = Properties.Resources.MERGE_fias_EstateStatus.ToString()
         };
-       public SqlCommand MERGE_fias_HouseStateStatus { get; set; } = new SqlCommand()
+        public SqlCommand MERGE_fias_HouseStateStatus { get; set; } = new SqlCommand()
         {
             CommandType = CommandType.Text,
             CommandText = Properties.Resources.MERGE_fias_HouseStateStatus.ToString()
         };
-       public SqlCommand MERGE_fias_House { get; set; } = new SqlCommand()
+        public SqlCommand MERGE_fias_House { get; set; } = new SqlCommand()
         {
             CommandTimeout = 0,
             CommandType = CommandType.Text,
             CommandText = Properties.Resources.MERGE_fias_House.ToString()
         };
-       public SqlCommand MERGE_fias_NormativeDocumentType { get; set; } = new SqlCommand()
+        public SqlCommand MERGE_fias_NormativeDocumentType { get; set; } = new SqlCommand()
         {
             CommandType = CommandType.Text,
             CommandText = Properties.Resources.MERGE_fias_NormativeDocumentType.ToString()
         };
-       public SqlCommand MERGE_fias_NormativeDocument { get; set; } = new SqlCommand()
+        public SqlCommand MERGE_fias_NormativeDocument { get; set; } = new SqlCommand()
         {
             CommandTimeout = 0,
             CommandType = CommandType.Text,
             CommandText = Properties.Resources.MERGE_fias_NormativeDocument.ToString()
         };
-       public SqlCommand MERGE_fias_Object { get; set; } = new SqlCommand()
+        public SqlCommand MERGE_fias_Object { get; set; } = new SqlCommand()
         {
             CommandTimeout = 0,
             CommandType = CommandType.Text,
@@ -147,7 +160,7 @@ namespace Fias.Operators
         };
         public SqlCommand MERGE_GlobalTempHouse { get; set; } = new SqlCommand()
         {
-            CommandTimeout=0,
+            CommandTimeout = 0,
             CommandType = CommandType.Text,
             CommandText = Properties.Resources.MERGE_GlobalTempHouse.ToString()
         };
@@ -158,7 +171,7 @@ namespace Fias.Operators
         };
         public SqlCommand MERGE_GlobalTempNormativeDocument { get; set; } = new SqlCommand()
         {
-            CommandTimeout =0,
+            CommandTimeout = 0,
             CommandType = CommandType.Text,
             CommandText = Properties.Resources.MERGE_GlobalTempNormativeDocument.ToString()
         };
@@ -275,7 +288,7 @@ namespace Fias.Operators
             CommandType = CommandType.Text,
             CommandText = Properties.Resources.MERGE_LocalTempStead.ToString()
         };
-       public SqlCommand MERGE_LocalTempStructureStatus { get; set; } = new SqlCommand()
+        public SqlCommand MERGE_LocalTempStructureStatus { get; set; } = new SqlCommand()
         {
             CommandType = CommandType.Text,
             CommandText = Properties.Resources.MERGE_LocalTempStructureStatus.ToString()
@@ -283,16 +296,30 @@ namespace Fias.Operators
 
         #endregion
         #region Properties
-        protected  WebLoader WebLoader = new WebLoader();
-        public string[,] patterns = new string[,] { { "ActualStatus", "ACTSTAT.DBF" }, { "CenterStatus", "CENTERST.DBF" }, {"CurrentStatus","CURENTST.DBF"},
-            {"EstateStatus","ESTSTAT.DBF"},{"FlatType","FLATTYPE.DBF"},{"IntervalStatus","INTVSTAT.DBF"},{"HouseStateStatus","HSTSTAT.DBF"},
-            {"NormativeDocumentType","NDOCTYPE.DBF"},{"OperationStatus","OPERSTAT.DBF"}, {"RoomType","ROOMTYPE.DBF"},{"AddressObjectType","SOCRBASE.DBF"},
-            {"StructureStatus","STRSTAT.DBF"},
-            { "Object", "ADDROB??.DBF"},{ "House", "HOUSE??.DBF"},{ "NormativeDocument","NORDOC??.DBF"},
-            { "Stead", "STEAD??.DBF"},{"Room", "ROOM??.DBF"},
-            { "Del_House", "DHOUSE.DBF"}, { "Del_NormativeDocument","DNORDOC.DBF"},{ "Del_Object", "DADDROB.DBF"}
+        protected WebLoader WebLoader = new WebLoader();
+        public List<DBFFilePattern> patterns = new List<DBFFilePattern>{
+            new DBFFilePattern() { TableName="ActualStatus", Pattern="ACTSTAT.DBF",SPOperator=typeof(ActualStatusOperatorSP) },
+            new DBFFilePattern() { TableName="CenterStatus", Pattern="CENTERST.DBF" ,SPOperator=typeof(CenterStatusOperatorSP)},
+            new DBFFilePattern() {TableName="CurrentStatus",Pattern="CURENTST.DBF",SPOperator=typeof(CurrentStatusOperatorSP)},
+            new DBFFilePattern() {TableName="EstateStatus",Pattern="ESTSTAT.DBF",SPOperator=typeof(EstateStatusOperatorSP)},
+            new DBFFilePattern() {TableName="FlatType",Pattern="FLATTYPE.DBF",SPOperator=typeof(FlatTypeOperatorSP)},
+            new DBFFilePattern() {TableName="IntervalStatus",Pattern="INTVSTAT.DBF",SPOperator=typeof(IntervalStatusOperatorSP)},
+            new DBFFilePattern() {TableName="HouseStateStatus",Pattern="HSTSTAT.DBF",SPOperator=typeof(HouseStateStatusOperatorSP)},
+            new DBFFilePattern() {TableName="NormativeDocumentType",Pattern="NDOCTYPE.DBF",SPOperator=typeof(NormativeDocumentTypeOperatorSP)},
+            new DBFFilePattern() {TableName="OperationStatus",Pattern="OPERSTAT.DBF",SPOperator=typeof(OperationStatusOperatorSP)},
+            new DBFFilePattern() {TableName="RoomType",Pattern="ROOMTYPE.DBF",SPOperator=typeof(RoomTypeOperatorSP)},
+            new DBFFilePattern() {TableName="AddressObjectType",Pattern="SOCRBASE.DBF",SPOperator=typeof(AddressObjectTypeOperatorSP)},
+            new DBFFilePattern() {TableName="StructureStatus",Pattern="STRSTAT.DBF",SPOperator=typeof(StructureStatusOperatorSP)},
+            new DBFFilePattern() {TableName= "Object", Pattern="ADDROB??.DBF",SPOperator=typeof(AddressObjectsOperatorSP)},
+            new DBFFilePattern() {TableName= "House", Pattern="HOUSE??.DBF",SPOperator=typeof(HouseOperatorSP)},
+            new DBFFilePattern() {TableName= "NormativeDocument",Pattern="NORDOC??.DBF",SPOperator=typeof(NormativeDocumentOperatorSP)},
+            new DBFFilePattern() { TableName="Stead",Pattern= "STEAD??.DBF",SPOperator=typeof(SteadOperatorSP)},
+            new DBFFilePattern() {TableName="Room", Pattern="ROOM??.DBF",SPOperator=typeof(RoomOperatorSP)},
+            new DBFFilePattern() {TableName="Del_House", Pattern="DHOUSE.DBF",SPOperator=typeof(Del_HouseOperatorSP)},
+            new DBFFilePattern() {TableName= "Del_NormativeDocument",Pattern="DNORDOC.DBF",SPOperator=typeof(Del_NormativeDocumentOperatorSP)},
+            new DBFFilePattern() {TableName= "Del_Object",Pattern= "DADDROB.DBF",SPOperator=typeof(Del_ObjectOperatorSP)}
         };
-        protected List<List<BulkTableListItem>> bulkLists = new List<List<BulkTableListItem>>();
+        protected List<List<IMerge>> OperatingLists = new List<List<IMerge>>();
         #endregion
         #region Constructors
 
@@ -301,10 +328,11 @@ namespace Fias.Operators
             var commands = this.GetType()
                 .GetProperties()
                 .Where(w => w.PropertyType == typeof(SqlCommand)).ToList();
-            foreach(var p in commands)
+            foreach (var p in commands)
             {
                 ((SqlCommand)p.GetValue(this)).Connection = Connection;
             }
+
             /*ClearTables.Connection = connection;
             CreateTempFiasTables.Connection = Connection;
             MERGE_fias_ActualStatus.Connection = Connection;
@@ -358,6 +386,32 @@ namespace Fias.Operators
         }
         #endregion
         #region Methods
+        public void OperatingsLoad()
+        {
+            try
+            {
+                foreach (var operatingList in OperatingLists)
+                {
+                    var op = operatingList;
+                    foreach (var operatingItem in op)
+                    {
+                        if (operatingItem.File != null)
+                        {
+                            DateTime _start = DateTime.Now;
+                            Logger.Logger.Info(operatingItem.File.Name + " запущено");
+                            operatingItem.Load_DBFToDb();
+                            DateTime _end = DateTime.Now;
+                            Logger.Logger.Info(operatingItem.File.Name + " закончено за " + (_end - _start).TotalSeconds.ToString() + " секунд");
+                        }
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+
+
         public void BulkLoad(ServerTableType serverTableType)
         {
             try
@@ -374,20 +428,7 @@ namespace Fias.Operators
                     case ServerTableType.ConnectionTemp:
                         break;
                 }
-                foreach (var bulkList in bulkLists)
-                {
-                    foreach (BulkTableListItem btlItem in bulkList)
-                    {
-                        if (btlItem.File != null && btlItem.TableName != null && btlItem.TableSchema != null)
-                        {
-                            DateTime _start = DateTime.Now;
-                            Logger.Logger.Info(btlItem.File.Name + " запущено");
-                            btlItem.Load_DBFToDb();
-                            DateTime _end = DateTime.Now;
-                            Logger.Logger.Info(btlItem.File.Name + " закончено за " + (_end - _start).TotalSeconds.ToString() + " секунд");
-                        }
-                    }
-                }
+                OperatingsLoad();
             }
             finally
             {
@@ -400,6 +441,18 @@ namespace Fias.Operators
                     case ServerTableType.ConnectionTemp:
                         break;
                 }
+            }
+        }
+
+        public void SPLoad()
+        {
+            try
+            {
+                SetProcrdureList();
+                OperatingsLoad();
+            }
+            finally
+            {
             }
         }
         public void DownloadFromSite(bool fullDB)
@@ -421,44 +474,91 @@ namespace Fias.Operators
         public void SetBulkLists(ServerTableType serverTableType)
         {
 
-            List<BulkTableListItem> bulkList = new List<BulkTableListItem>();
-            for (int n = 0; n <= (patterns.Length / patterns.Rank - 1); n++)
+            List<IMerge> bulkList = new List<IMerge>();
+            foreach (var pattern in patterns)
             {
-                foreach (FileInfo file in Rootdir.GetFiles(patterns[n, 1]).OrderBy(file => file.Length))
+                foreach (FileInfo file in Rootdir.GetFiles(pattern.Pattern).OrderBy(file => file.Length))
                 {
-                    bulkList.Add(new BulkTableListItem(patterns[n, 0], SchemaName, file,serverTableType,Connection));
+                    bulkList.Add(new BulkTableOperator(pattern.TableName, SchemaName, file, serverTableType, Connection));
                 }
             }
-            bulkLists.Add(bulkList);
+            OperatingLists.Add(bulkList);
         }
-        public void Load_DBFToDb(FileInfo dbfFile, string TableName)
-        {
-            SqlTransaction TRA = Connection.BeginTransaction(("Bulk" + TableName));
-            SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(Connection, SqlBulkCopyOptions.Default, TRA)
-            {
-                BulkCopyTimeout = 60000,
-                DestinationTableName = TableName.Contains("#") ? TableName : string.Concat(SchemaName, ".", TableName)
-            };
-            try
-            {
-                var errors = new List<object>();
-                using (NDbfReader.Table dbfTable = NDbfReader.Table.Open(dbfFile.Open(FileMode.Open)))
-                {
-                    List<DataRow> rows = new List<DataRow>();
-                    DBFDataReader dbfReader = new DBFDataReader(dbfTable, Encoding.GetEncoding(866));
-                    foreach (var c in dbfTable.Columns)
-                        sqlBulkCopy.ColumnMappings.Add(c.Name, c.Name);
-                    sqlBulkCopy.WriteToServer(dbfReader);
-                    TRA.Commit();
-                }
-                if (errors.Count == 0)
-                    dbfFile.Delete();
-            }
-            finally
-            {
-                sqlBulkCopy.Close();
-            }
 
+        public void SetProcrdureList()
+        {
+
+            List<IMerge> procedureList = new List<IMerge>();
+            foreach (var pattern in patterns)
+            {
+                foreach (FileInfo file in Rootdir.GetFiles(pattern.Pattern).OrderBy(file => file.Length))
+                {
+                    switch (pattern.Pattern)
+                    {
+                        case "ACTSTAT.DBF":
+                            procedureList.Add(new ActualStatusOperatorSP(file, Connection));
+                            break;
+                        case "CENTERST.DBF":
+                            procedureList.Add(new CenterStatusOperatorSP(file, Connection)); 
+                            break;
+                        case "CURENTST.DBF":
+                            procedureList.Add(new CurrentStatusOperatorSP(file, Connection)); 
+                            break;
+                        case "ESTSTAT.DBF":
+                            procedureList.Add(new EstateStatusOperatorSP(file, Connection)); 
+                            break;
+                        case "FLATTYPE.DBF":
+                            procedureList.Add(new FlatTypeOperatorSP(file, Connection)); 
+                            break;
+                        case "INTVSTAT.DBF":
+                            procedureList.Add(new IntervalStatusOperatorSP(file, Connection)); 
+                            break;
+                        case "HSTSTAT.DBF":
+                            procedureList.Add(new HouseStateStatusOperatorSP(file, Connection)); 
+                            break;
+                        case "NDOCTYPE.DBF":
+                            procedureList.Add(new NormativeDocumentTypeOperatorSP(file, Connection)); 
+                            break;
+                        case "OPERSTAT.DBF":
+                            procedureList.Add(new OperationStatusOperatorSP(file, Connection)); 
+                            break;
+                        case "ROOMTYPE.DBF":
+                            procedureList.Add(new RoomTypeOperatorSP(file, Connection)); 
+                            break;
+                        case "SOCRBASE.DBF":
+                            procedureList.Add(new AddressObjectTypeOperatorSP(file, Connection)); 
+                            break;
+                        case "STRSTAT.DBF":
+                            procedureList.Add(new StructureStatusOperatorSP(file, Connection)); 
+                            break;
+                        case "ADDROB??.DBF":
+                            procedureList.Add(new AddressObjectsOperatorSP(file, Connection));
+                            break;
+                        case "HOUSE??.DBF":
+                            procedureList.Add(new HouseOperatorSP(file, Connection));
+                            break;
+                        case "NORDOC??.DBF":
+                            procedureList.Add(new NormativeDocumentOperatorSP(file, Connection));
+                            break;
+                        case "STEAD??.DBF":
+                            procedureList.Add(new SteadOperatorSP(file, Connection));
+                            break;
+                        case "ROOM??.DBF":
+                            procedureList.Add(new RoomOperatorSP(file, Connection));
+                            break;
+                        case "DHOUSE.DBF":
+                            procedureList.Add(new Del_HouseOperatorSP(file, Connection)); 
+                            break;
+                        case "DNORDOC.DBF":
+                            procedureList.Add(new Del_NormativeDocumentOperatorSP(file, Connection)); 
+                            break;
+                        case "DADDROB.DBF":
+                            procedureList.Add(new Del_ObjectOperatorSP(file, Connection)); 
+                            break;
+                    }
+                }
+            }
+            OperatingLists.Add(procedureList);
         }
         public void MergeDB(ServerTableType serverTableType)
         {
