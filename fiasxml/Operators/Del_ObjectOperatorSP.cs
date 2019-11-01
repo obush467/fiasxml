@@ -9,7 +9,7 @@ namespace Fias.Operators
     {
         public Del_ObjectOperatorSP(FileInfo file, SqlConnection connection) : base(file, connection)
         {
-            Command.CommandText = "fias.merge_Del_Object";
+            Command.CommandText = "fias.merge_Del_AddressObjects";
             Add_Parameters();
         }
 

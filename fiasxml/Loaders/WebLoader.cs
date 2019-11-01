@@ -50,7 +50,7 @@ namespace Fias.Loaders
                 {
                     foreach (RarArchiveEntry item in archive.Entries)
                     {
-                        item.WriteToDirectory(destinationDir.FullName);
+                        item. WriteToDirectory(destinationDir.FullName);
                     }
                 }
                     File.Delete(tempPath);
@@ -60,6 +60,24 @@ namespace Fias.Loaders
             {
                 Logger.Logger.Error(e.Message);
                 return false; 
+            }
+        }
+
+        public IEnumerable<dynamic> LoadStreams(bool fullBase, DirectoryInfo destinationDir)
+        {
+            string tempPath = Path.Combine(destinationDir.FullName, "fias_dbf_" + ((fullBase) ? "" : "delta_") + DateTime.Now.ToShortDateString() + ".rar");
+            try
+            {
+                webClient.DownloadFile((fullBase ? FullUri : DeltaUri), tempPath);
+                using (RarArchive archive = RarArchive.Open(tempPath))
+                {
+                      return  archive.Entries.Select(s=> new { Name = s.LinkTarget, stream = s.OpenEntryStream() }).ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.Logger.Error(e.Message);
+                return null;
             }
         }
     }

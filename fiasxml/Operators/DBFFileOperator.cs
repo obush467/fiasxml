@@ -19,10 +19,10 @@ namespace Fias.Operators
         }
         public virtual void Load_DBFToDb() { }
     }
-        public class CommandDBFFileOperator: DBFFileOperator
-        {
-        public SqlCommand Command; 
-       public CommandDBFFileOperator(FileInfo file, SqlConnection connection, SqlCommand command):base(file,connection)
+    public class CommandDBFFileOperator : DBFFileOperator
+    {
+        public SqlCommand Command;
+        public CommandDBFFileOperator(FileInfo file, SqlConnection connection, SqlCommand command) : base(file, connection)
         {
             Command = command;
         }
@@ -45,11 +45,26 @@ namespace Fias.Operators
                     while (dbfReader.Read())
                     {
                         foreach (var c in dbfTable.Columns)
-                            Command.Parameters["@" + c.Name].Value = dbfReader.GetValue(c);
+                        {
+                            switch (Command.Parameters["@" + c.Name].DbType)
+                            {
+                                case System.Data.DbType.String:
+                                    if (c.Type == typeof(byte[]))
+                                        Command.Parameters["@" + c.Name].Value = dbfReader.GetValue(c).ToString();
+                                    else
+                                        Command.Parameters["@" + c.Name].Value = dbfReader.GetString(c);
+                                    break;
+                                default:
+                                    Command.Parameters["@" + c.Name].Value = dbfReader.GetValue(c);
+                                    break;
+                            }
+                        }
                         Command.ExecuteNonQuery();
-                    }
+
+                    } 
                 }
-                File.Delete();
+                    File.Delete();
+                
             }
             catch (Exception e)
             {

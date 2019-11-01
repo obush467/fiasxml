@@ -310,14 +310,14 @@ namespace Fias.Operators
             new DBFFilePattern() {TableName="RoomType",Pattern="ROOMTYPE.DBF",SPOperator=typeof(RoomTypeOperatorSP)},
             new DBFFilePattern() {TableName="AddressObjectType",Pattern="SOCRBASE.DBF",SPOperator=typeof(AddressObjectTypeOperatorSP)},
             new DBFFilePattern() {TableName="StructureStatus",Pattern="STRSTAT.DBF",SPOperator=typeof(StructureStatusOperatorSP)},
-            new DBFFilePattern() {TableName= "Object", Pattern="ADDROB??.DBF",SPOperator=typeof(AddressObjectsOperatorSP)},
-            new DBFFilePattern() {TableName= "House", Pattern="HOUSE??.DBF",SPOperator=typeof(HouseOperatorSP)},
-            new DBFFilePattern() {TableName= "NormativeDocument",Pattern="NORDOC??.DBF",SPOperator=typeof(NormativeDocumentOperatorSP)},
-            new DBFFilePattern() { TableName="Stead",Pattern= "STEAD??.DBF",SPOperator=typeof(SteadOperatorSP)},
-            new DBFFilePattern() {TableName="Room", Pattern="ROOM??.DBF",SPOperator=typeof(RoomOperatorSP)},
-            new DBFFilePattern() {TableName="Del_House", Pattern="DHOUSE.DBF",SPOperator=typeof(Del_HouseOperatorSP)},
             new DBFFilePattern() {TableName= "Del_NormativeDocument",Pattern="DNORDOC.DBF",SPOperator=typeof(Del_NormativeDocumentOperatorSP)},
-            new DBFFilePattern() {TableName= "Del_Object",Pattern= "DADDROB.DBF",SPOperator=typeof(Del_ObjectOperatorSP)}
+            new DBFFilePattern() {TableName= "NormativeDocument",Pattern="NORDOC??.DBF",SPOperator=typeof(NormativeDocumentOperatorSP)},
+            new DBFFilePattern() {TableName= "Del_Object",Pattern= "DADDROB.DBF",SPOperator=typeof(Del_ObjectOperatorSP)},
+            new DBFFilePattern() {TableName= "Object", Pattern="ADDROB??.DBF",SPOperator=typeof(AddressObjectsOperatorSP)},
+            new DBFFilePattern() {TableName="Del_House", Pattern="DHOUSE.DBF",SPOperator=typeof(Del_HouseOperatorSP)},
+            new DBFFilePattern() {TableName= "House", Pattern="HOUSE??.DBF",SPOperator=typeof(HouseOperatorSP)},            
+            new DBFFilePattern() { TableName="Stead",Pattern= "STEAD??.DBF",SPOperator=typeof(SteadOperatorSP)},
+            new DBFFilePattern() {TableName="Room", Pattern="ROOM??.DBF",SPOperator=typeof(RoomOperatorSP)}
         };
         protected List<List<IMerge>> OperatingLists = new List<List<IMerge>>();
         #endregion
@@ -332,60 +332,15 @@ namespace Fias.Operators
             {
                 ((SqlCommand)p.GetValue(this)).Connection = Connection;
             }
-
-            /*ClearTables.Connection = connection;
-            CreateTempFiasTables.Connection = Connection;
-            MERGE_fias_ActualStatus.Connection = Connection;
-            MERGE_fias_AddressObjectType.Connection = Connection;
-            MERGE_fias_CenterStatus.Connection = Connection;
-            MERGE_fias_CurrentStatus.Connection = Connection;
-            MERGE_fias_EstateStatus.Connection = Connection;
-            MERGE_fias_HouseStateStatus.Connection = Connection;
-            MERGE_fias_NormativeDocumentType.Connection = Connection;
-            MERGE_fias_NormativeDocument.Connection = Connection;
-            MERGE_fias_OperationStatus.Connection = Connection;
-            MERGE_fias_RoomType.Connection = Connection;
-            MERGE_fias_StructureStatus.Connection = Connection;
-            MERGE_fias_Object.Connection = Connection;
-            MERGE_fias_House.Connection = Connection;
-            MERGE_fias_Room.Connection = Connection;
-            MERGE_fias_Stead.Connection = Connection;
-            MERGE_GlobalTempActualStatus.Connection = Connection;
-            MERGE_GlobalTempAddressObjectType.Connection = Connection;
-            MERGE_GlobalTempCenterStatus.Connection = Connection;
-            MERGE_GlobalTempCurrentStatus.Connection = Connection;
-            MERGE_GlobalTempEstateStatus.Connection = Connection;
-            MERGE_GlobalTempHouseStateStatus.Connection = Connection;
-            MERGE_GlobalTempNormativeDocumentType.Connection = Connection;
-            MERGE_GlobalTempNormativeDocument.Connection = Connection;
-            MERGE_GlobalTempOperationStatus.Connection = Connection;
-            MERGE_GlobalTempRoomType.Connection = Connection;
-            MERGE_GlobalTempStructureStatus.Connection = Connection;
-            MERGE_GlobalTempObject.Connection = Connection;
-            MERGE_GlobalTempHouse.Connection = Connection;
-            MERGE_GlobalTempRoom.Connection = Connection;
-            MERGE_GlobalTempStead.Connection = Connection;
-            MERGE_LocalTempActualStatus.Connection = Connection;
-            MERGE_LocalTempAddressObjectType.Connection = Connection;
-            MERGE_LocalTempCenterStatus.Connection = Connection;
-            MERGE_LocalTempCurrentStatus.Connection = Connection;
-            MERGE_LocalTempEstateStatus.Connection = Connection;
-            MERGE_LocalTempHouseStateStatus.Connection = Connection;
-            MERGE_LocalTempNormativeDocumentType.Connection = Connection;
-            MERGE_LocalTempNormativeDocument.Connection = Connection;
-            MERGE_LocalTempOperationStatus.Connection = Connection;
-            MERGE_LocalTempRoomType.Connection = Connection;
-            MERGE_LocalTempStructureStatus.Connection = Connection;
-            MERGE_LocalTempObject.Connection = Connection;
-            MERGE_LocalTempHouse.Connection = Connection;
-            MERGE_LocalTempRoom.Connection = Connection;
-            MERGE_LocalTempStead.Connection = Connection;*/
         }
         public FiasOperatorDBF(DirectoryInfo rootdir, string connectionString, string schemaname) : this(rootdir, new SqlConnection(connectionString), schemaname)
         {
         }
         #endregion
         #region Methods
+        /// <summary>
+        /// Вносит данные из загруженных объектов IMerge в базу данных.
+        /// </summary>
         public void OperatingsLoad()
         {
             try
@@ -400,10 +355,12 @@ namespace Fias.Operators
                             DateTime _start = DateTime.Now;
                             Logger.Logger.Info(operatingItem.File.Name + " запущено");
                             operatingItem.Load_DBFToDb();
+                            op.Remove(operatingItem);
                             DateTime _end = DateTime.Now;
                             Logger.Logger.Info(operatingItem.File.Name + " закончено за " + (_end - _start).TotalSeconds.ToString() + " секунд");
                         }
                     }
+                    OperatingLists.Remove(operatingList);
                 }
             }
             finally
@@ -411,7 +368,10 @@ namespace Fias.Operators
             }
         }
 
-
+        /// <summary>
+        /// Вносит данные из загруженных файлов в базу данных используя BulkLoader.
+        /// </summary>
+        /// <param name="serverTableType"></param> тип используемых временных таблиц для загрузки
         public void BulkLoad(ServerTableType serverTableType)
         {
             try
@@ -443,7 +403,9 @@ namespace Fias.Operators
                 }
             }
         }
-
+        /// <summary>
+        /// Вносит данные из загруженных файлов в базу данных используя хранимые процедуры
+        /// </summary>
         public void SPLoad()
         {
             try
@@ -462,7 +424,7 @@ namespace Fias.Operators
         public void DownloadFromSite(bool fullDB, DateTime LastDownload)
         {
             var dateStart = DateTime.Now;
-            Logger.Logger.Info("Начата загрузка базы ФИАС с сайта ");
+            Logger.Logger.Info(fullDB? "Начата загрузка базы ФИАС с сайта: Полная база": "Начата загрузка базы ФИАС с сайта: Обновление базы");
             var loaddate = WebLoader.Load(fullDB, Rootdir, LastDownload);
             var dateEnd = DateTime.Now;
             Logger.Logger.Info("Завершена загрузка базы ФИАС с сайта ");
@@ -471,7 +433,11 @@ namespace Fias.Operators
                 SetLastDownloadDate(fullDB ? "Полная ФИАС" : "Обновление ФИАС", (DateTime)loaddate, true, dateStart, dateEnd);
             }
         }
-        public void SetBulkLists(ServerTableType serverTableType)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="serverTableType"></param>
+        protected void SetBulkLists(ServerTableType serverTableType)
         {
 
             List<IMerge> bulkList = new List<IMerge>();
@@ -485,7 +451,7 @@ namespace Fias.Operators
             OperatingLists.Add(bulkList);
         }
 
-        public void SetProcrdureList()
+        protected void SetProcrdureList()
         {
 
             List<IMerge> procedureList = new List<IMerge>();

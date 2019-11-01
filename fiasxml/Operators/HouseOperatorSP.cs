@@ -18,28 +18,28 @@ namespace Fias.Operators
         }
        public void Add_Parameters()
         {
-            Command.Parameters.Add("@POSTALCODE", SqlDbType.VarChar).IsNullable = true;
-            Command.Parameters.Add("@IFNSFL", SqlDbType.VarChar).IsNullable = true;
-            Command.Parameters.Add("@TERRIFNSFL", SqlDbType.VarChar).IsNullable = true;
-            Command.Parameters.Add("@IFNSUL", SqlDbType.VarChar).IsNullable = true;
-            Command.Parameters.Add("@TERRIFNSUL", SqlDbType.VarChar).IsNullable = true;
-            Command.Parameters.Add("@OKATO", SqlDbType.VarChar).IsNullable = true;
-            Command.Parameters.Add("@OKTMO", SqlDbType.VarChar).IsNullable = true;
+            Command.Parameters.Add("@POSTALCODE", SqlDbType.NVarChar).IsNullable = true;
+            Command.Parameters.Add("@IFNSFL", SqlDbType.NVarChar).IsNullable = true;
+            Command.Parameters.Add("@TERRIFNSFL", SqlDbType.NVarChar).IsNullable = true;
+            Command.Parameters.Add("@IFNSUL", SqlDbType.NVarChar).IsNullable = true;
+            Command.Parameters.Add("@TERRIFNSUL", SqlDbType.NVarChar).IsNullable = true;
+            Command.Parameters.Add("@OKATO", SqlDbType.NVarChar).IsNullable = true;
+            Command.Parameters.Add("@OKTMO", SqlDbType.NVarChar).IsNullable = true;
             Command.Parameters.Add("@UPDATEDATE", SqlDbType.Date).IsNullable = true;
-            Command.Parameters.Add("@HOUSENUM", SqlDbType.VarChar).IsNullable = true;
+            Command.Parameters.Add("@HOUSENUM", SqlDbType.NVarChar).IsNullable = true;
             Command.Parameters.Add("@ESTSTATUS", SqlDbType.Int).IsNullable = true;
-            Command.Parameters.Add("@BUILDNUM", SqlDbType.VarChar).IsNullable = true;
-            Command.Parameters.Add("@STRUCNUM", SqlDbType.VarChar).IsNullable = true;
+            Command.Parameters.Add("@BUILDNUM", SqlDbType.NVarChar).IsNullable = true;
+            Command.Parameters.Add("@STRUCNUM", SqlDbType.NVarChar).IsNullable = true;
             Command.Parameters.Add("@STRSTATUS", SqlDbType.Int).IsNullable = true;
-            Command.Parameters.Add("@HOUSEID", SqlDbType.VarChar).IsNullable = true;
-            Command.Parameters.Add("@HOUSEGUID", SqlDbType.VarChar).IsNullable = true;
-            Command.Parameters.Add("@AOGUID", SqlDbType.VarChar).IsNullable = true;
+            Command.Parameters.Add("@HOUSEID", SqlDbType.NVarChar).IsNullable = true;
+            Command.Parameters.Add("@HOUSEGUID", SqlDbType.NVarChar).IsNullable = true;
+            Command.Parameters.Add("@AOGUID", SqlDbType.NVarChar).IsNullable = true;
             Command.Parameters.Add("@STARTDATE", SqlDbType.Date).IsNullable = true;
             Command.Parameters.Add("@ENDDATE", SqlDbType.Date).IsNullable = true;
             Command.Parameters.Add("@STATSTATUS", SqlDbType.Int).IsNullable = true;
-            Command.Parameters.Add("@NORMDOC", SqlDbType.VarChar).IsNullable = true;
+            Command.Parameters.Add("@NORMDOC", SqlDbType.NVarChar).IsNullable = true;
             Command.Parameters.Add("@COUNTER", SqlDbType.Int).IsNullable = true;
-            Command.Parameters.Add("@CADNUM", SqlDbType.VarChar).IsNullable = true;
+            Command.Parameters.Add("@CADNUM", SqlDbType.NVarChar).IsNullable = true;
             Command.Parameters.Add("@DIVTYPE", SqlDbType.Int).IsNullable = true;
         }
     }

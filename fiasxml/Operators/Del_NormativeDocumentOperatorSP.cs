@@ -17,7 +17,7 @@ namespace Fias.Operators
         {
             Command.Parameters.Add("@NORMDOCID", SqlDbType.NVarChar).IsNullable = true;
             Command.Parameters.Add("@DOCNAME", SqlDbType.NVarChar).IsNullable = true;
-            Command.Parameters.Add("@DOCDAT", SqlDbType.Date).IsNullable = true;
+            Command.Parameters.Add("@DOCDATE", SqlDbType.Date).IsNullable = true;
             Command.Parameters.Add("@DOCNUM", SqlDbType.NVarChar).IsNullable = true;
             Command.Parameters.Add("@DOCTYPE", SqlDbType.BigInt).IsNullable = true;
             Command.Parameters.Add("@DOCIMGID", SqlDbType.NVarChar).IsNullable = true;

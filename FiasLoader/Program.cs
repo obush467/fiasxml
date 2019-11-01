@@ -38,9 +38,13 @@ namespace FiasLoader
                 };
                 var serverTableType = ServerTableType.GlobalTemp;
                 FiasOperatorDBF fiasDBFDataSetConverter = new FiasOperatorDBF(new DirectoryInfo(DBF_Directory), builder.ConnectionString, schemaname);
-                //var DownloadTask = Task.Factory.StartNew(() => fiasDBFDataSetConverter.DownloadFromSite(true));
+                var LoadTaskOld = Task.Factory.StartNew(() =>
+                {
+                    fiasDBFDataSetConverter.SPLoad();                    
+                });
+                var DownloadTask = LoadTaskOld.ContinueWith(a => fiasDBFDataSetConverter.DownloadFromSite(false));
                 //var LoadTask = Task.Factory.StartNew(() => fiasDBFDataSetConverter.BulkLoad(serverTableType));/*DownloadTask*/
-                var LoadTask = Task.Factory.StartNew(a => fiasDBFDataSetConverter.SPLoad(),ct.Token);
+                var LoadTask = DownloadTask.ContinueWith(a => fiasDBFDataSetConverter.SPLoad());
                 /*var MergeTask = LoadTask.ContinueWith(a => 
                     { 
                         if (a.IsCompleted) 
